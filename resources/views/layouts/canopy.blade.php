@@ -14,7 +14,6 @@
 
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
 <!-- Scripts -->
 <script>
@@ -22,7 +21,6 @@ window.Laravel = {!! json_encode([
         'csrfToken' => csrf_token(),
 ]) !!};
 </script>
-<script src="{{ asset('js/spin.js') }}"></script>
 <script src="{{ asset('js/npc-polyfills.js') }}"></script>
 <script src="{{ asset('js/npc-declarations.js') }}"></script>
 </head>
