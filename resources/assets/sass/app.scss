@@ -7,3 +7,148 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+html, body {
+    background-color: #fff;
+    color: #636b6f;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+    height: 100vh;
+    margin: 0;
+}
+
+.full-height {
+    height: 100vh;
+}
+
+.flex-center {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.position-ref {
+    position: relative;
+}
+
+.top-right {
+    position: absolute;
+    right: 10px;
+    top: 18px;
+}
+
+.content {
+    text-align: center;
+}
+
+.title {
+    font-size: 84px;
+}
+
+.links > a {
+    color: #636b6f;
+    padding: 0 25px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .1rem;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.m-b-md {
+    margin-bottom: 30px;
+}
+
+.npc-hidden {
+    display: none;
+}
+
+.npc-left {
+    float: left;
+}
+
+.npc-right {
+    float: right;
+}
+
+.npc-spinner {
+  border:3px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 3px solid blue;
+  border-bottom: 3px solid blue;
+  width: 30px;
+  height: 30px;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
+
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.up-street-input-wrapper {
+    position: relative;
+}
+
+.up-street-input-wrapper .up-street-menu {
+    position: absolute;
+    z-index: 1000;
+    width: 100%;
+    display: block;
+}
+
+.up-street-menu-item {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+a.up-street-menu-item {
+    color: #555;
+    text-decoration: none;
+}
+
+.up-street-menu-item:first-child {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+.npc-tab-content {
+    padding-top: 50px;
+}
+
+.npc-thumbnail-caption > a {
+    text-decoration: none;
+}
+
+.npc-thumbnail-caption > a:hover {
+    text-decoration: none;
+    
+}
+
+.npc-footer-wrapper {
+    padding-top: 50px;
+}
+
+.npc-footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #f5f5f5;
+}
+
+.container .text-muted {
+    margin: 20px 0;
+    padding-right: 20px;
+}
+

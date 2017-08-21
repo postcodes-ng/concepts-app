@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'Nigerian Postcode Finder'),
 
     /*
     |--------------------------------------------------------------------------
@@ -227,5 +227,16 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Cache TTL
+    |--------------------------------------------------------------------------
+    |
+    | The number of minutes for which the value should be cached.
+    |
+    */
+
+     'cache_ttl' => env('CACHE_TTL', 1440),
 
 ];
