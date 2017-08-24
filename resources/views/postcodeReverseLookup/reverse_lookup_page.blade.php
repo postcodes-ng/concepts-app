@@ -22,7 +22,7 @@
                             <label for="rlkp-postcode" class="col-md-4 control-label">Postcode</label>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                    <input name="rlkp-postcode" id="rlkp-postcode" class="form-control" type="text" autocomplete="off" placeholder="Paste your Postcode here">
+                                    <input name="rlkp-postcode" id="rlkp-postcode" class="form-control" type="number" autocomplete="off" placeholder="Paste your Postcode here">
                                     <span class="input-group-btn">
                                         <button id="rlkp-button" class="btn btn-default" type="button">Go!</button>
                                     </span>
