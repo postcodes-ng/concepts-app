@@ -8,9 +8,10 @@
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<title>Nigerian Postcodes Finder - @yield('title')</title>
+<title>Nigeria Postcodes Finder - @yield('title')</title>
 <meta name="ROBOTS" content="INDEX, FOLLOW">
 <meta name="description" content="Nigeria Postcode Finder. Lookup the postcode to your area, village, or street. You can also reverse lookup a postcode to find out what area, town or village it represents.">
+<link rel="alternate" href="http://nigeriapostcodes.naijaz.com" hreflang="en-us" />
 
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
