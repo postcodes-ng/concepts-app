@@ -803,6 +803,11 @@ var app = new Vue({
   el: '#app'
 });
 
+// Sets active link in Bootstrap menu
+jQuery(document).ready(function () {
+  jQuery('a[href="' + this.location.href + '"]').addClass('npc-active-menu-item');
+});
+
 /***/ }),
 /* 10 */
 /***/ (function(module, exports, __webpack_require__) {
