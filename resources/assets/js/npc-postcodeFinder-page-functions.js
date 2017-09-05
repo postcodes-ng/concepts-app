@@ -43,7 +43,7 @@ jQuery('#up-street-input').bind('input propertychange', function() {
 /** Facility Event Handlers */
 jQuery('#fp-state-select').on('change', function() {
     hideDiv('fp-result');
-    hideDiv('npc-fp-town');
+    hideDiv('npc-fp-facility');
     makeLgaRequest( this.value, 'fp-loading',  buildFpLgaResult);
 });
 
