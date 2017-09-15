@@ -9,7 +9,8 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-2">
             <p>
-                You have a postcode and you want to find the area, or town, or village it represents then use the form below.
+                More often than not you will have a Nigeria postcode and you don't know where it represents.
+                Well we've got you covered. Use the form below to find the area, or town, or village, or street it represents.
             </p>
             <div class="panel panel-primary">
                 <div class="panel-heading">

@@ -33,6 +33,22 @@
                     </div>
                 </div>
             </div>
+
+            <div>
+                <p>
+                    It is important to understand that Nigeria's postcode system is grouped into 3 categories;
+                    <ul>
+                        <li>Urban Postcodes</li>
+                        <li>Rural Postcodes</li>
+                        <li>Facility Postcodes</li>
+                    </ul>
+                </p>
+                <p>
+                    The category names are pretty much self explanotary in that '<strong>Urban Postcodes</strong>' represents postcodes allocated to the 
+                    urban areas, '<strong>Rural Postcodes</strong>' represents those postcodes allocated to the rural areas, whilst '<strong>Facility Postcodes</strong>'
+                     represents postcodes assigned to a NiPost Office Facility.
+                </p>
+            </div>
 			
         </div>
         <!-- spinner -->

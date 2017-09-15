@@ -1,6 +1,6 @@
 <div class="panel panel-primary">
     <div class="panel-heading">
-        <h3 class="panel-title">Urban Postcode</h3>
+        <h3 class="panel-title">Urban Postcode Finder</h3>
     </div>
     <div class="panel-body">
     	<form class="form-horizontal" role="form" method="POST" action="">
