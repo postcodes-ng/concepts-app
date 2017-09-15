@@ -19,6 +19,9 @@
                                 <h3>Postcode Lookup</h3>
                                 <p>Lookup Urban, Rural, and Facility postcodes.</p>
                             </a>
+                            <div>
+                                <a href="{{route('postcodeFinder')}}" class="btn btn-primary btn-primary"><span class="glyphicon glyphicon-search"></span> ... </a>
+                            </div>
                         </div>
                         </div>
                     </div>
@@ -29,6 +32,9 @@
                                 <h3>Reverse Lookup</h3>
                                 <p>Find the Area, or Streets, or Village associated with a given postcode.</p>
                             </a>
+                            <div>
+                                <a href="{{route('postcodeReverseLookup')}}" class="btn btn-primary btn-primary"><span class="glyphicon glyphicon-search"></span> ... </a>
+                            </div>
                         </div>
                         </div>
                     </div>
