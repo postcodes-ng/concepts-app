@@ -5,6 +5,19 @@
 @section('body')
 
 @include('nav.nav')
+<script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "WebSite",
+    "url": "http://nigeriapostcodes.naijaz.com/",
+    "potentialAction": {
+      "@type": "FindAction",
+      "target": "http://nigeriapostcodes.naijaz.com/postcodeFinder",
+      "name": "Nigeria Postcode Lookup",
+      "description": "Lookup postcode for an area, street, town, or village"
+    }
+}
+</script>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
