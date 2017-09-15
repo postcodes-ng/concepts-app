@@ -3,6 +3,11 @@
 @section('title', 'Home')
 
 @section('body')
+<div itemscope itemtype="http://schema.org/WebSite">
+    <link itemprop="url" href="http://nigeriapostcodes.naijaz.com/"/>
+    <meta itemprop="name" content="Home"/>
+    <meta itemprop="description" content="Nigeria Postcode Lookup Service"/>    
+</div>
         <div id="home" class="container">
 
 

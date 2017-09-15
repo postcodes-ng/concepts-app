@@ -5,15 +5,12 @@
 @section('body')
 
 @include('nav.nav')
-<script type="application/ld+json">
-{
-    "@context": "http://schema.org",
-    "@type": "WebSite",
-    "url": "http://nigeriapostcodes.naijaz.com/postcodeReverseLookup",
-    "name": "Nigeria Postcode Reverse Lookup",
-    "description": "Lookup area, street, town, or village for a given postcode"
-}
-</script>
+<div itemscope itemtype="http://schema.org/WebSite">
+    <link itemprop="url" href="http://nigeriapostcodes.naijaz.com/postcodeReverseLookup"/>
+    <meta itemprop="name" content="Nigeria Postcode Reverse Lookup"/>
+    <meta itemprop="description" content="Lookup area, street, town, or village for a given postcode"/>
+    
+</div>
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-2">

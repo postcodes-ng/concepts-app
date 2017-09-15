@@ -11,3 +11,4 @@ npm-debug.log
 .env
 /.project
 /.buildpath
+/.DS_Store
