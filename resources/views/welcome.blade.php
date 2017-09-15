@@ -8,7 +8,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Nigerian Postcodes Finder
+                    Nigeria Postcodes Finder
                 </div>
 
                 <div class="row">
