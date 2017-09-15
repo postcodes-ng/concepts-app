@@ -9,13 +9,9 @@
 {
     "@context": "http://schema.org",
     "@type": "WebSite",
-    "url": "http://nigeriapostcodes.naijaz.com/",
-    "potentialAction": {
-      "@type": "FindAction",
-      "target": "http://nigeriapostcodes.naijaz.com/postcodeFinder",
-      "name": "Nigeria Postcode Lookup",
-      "description": "Lookup postcode for an area, street, town, or village"
-    }
+    "url": "http://nigeriapostcodes.naijaz.com/postcodeFinder",
+    "name": "Nigeria Postcode Lookup",
+    "description": "Lookup postcode for an area, street, town, or village"
 }
 </script>
 <div class="container">
