@@ -57,13 +57,13 @@ class PostcodeApiWrapper
     /**
      * Retrieves Nigerian LocalGovernmentArea/s for a State.
      */
-    public function getLocalGovernmentAreas($stateCode, $lga = null)
+    public function getLocalGovernmentAreas($stateCode, $lgaId = null)
     {
-        $endpoint = 'geography/states/'. $stateCode . '/lgas';
-        $params = [];
+        $endpoint = 'geography/lgas';
+        $params['stateCode'] = $stateCode;
 
         if (!empty($lga)) {
-            $params['localGovtAreaName'] = $lga;
+            $params['lgaId'] = $lgaId;
         }
 
         $response = $this->sendRequest($endpoint, $params);
