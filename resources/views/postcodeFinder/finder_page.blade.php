@@ -1,14 +1,16 @@
 @extends('layouts.canopy')
 
-@section('title', 'Postcode Lookup')
+@section('title', 'Nigerian Postcode Lookup')
+
+@section('description', 'Lookup Nigerian postcode for a given area, street, town, or village')
 
 @section('body')
 
 @include('nav.nav')
 <div itemscope itemtype="http://schema.org/WebSite">
-    <link itemprop="url" href="http://nigeriapostcodes.naijaz.com/postcodeFinder"/>
+    <link itemprop="url" href="http://www.postcodes.ng/postcodeFinder"/>
     <meta itemprop="name" content="Nigeria Postcode Lookup"/>
-    <meta itemprop="description" content="Lookup postcode for an area, street, town, or village"/>    
+    <meta itemprop="description" content="Lookup Nigerian postcode for a given area, street, town, or village"/>    
 </div>
 <div class="container">
     <div class="row">
