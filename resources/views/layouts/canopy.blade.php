@@ -8,11 +8,11 @@
 <!-- CSRF Token -->
 <meta name="csrf-token" content="{{ csrf_token() }}">
 
-<title>Nigeria Postcodes Finder - @yield('title')</title>
+<title>Nigerian Postcode Lookup Service - @yield('title')</title>
 <meta name="ROBOTS" content="INDEX,FOLLOW"/>
-<meta name="description" content="Nigeria Postcode Finder. Lookup the postcode to your area, village, or street. You can also reverse lookup a postcode to find out what area, town or village it represents."/>
-<meta name="keywords" content="nigeria postcode,nigeria zipcode,nigeria state postcode,nigeria rural postcode,nigeria urban postcode,nigeria facility postcode"/>
-<link rel="alternate" href="http://nigeriapostcodes.naijaz.com" hreflang="en-us" />
+<meta name="description" content="@yield('description')"/>
+<meta name="keywords" content="nigeria postcode,nigeria zipcode,nigeria state postcode,nigeria postal code,nigeria urban postcode,nigeria facility postcode"/>
+<!-- <link rel="alternate" href="http://nigeriapostcodes.naijaz.com" hreflang="en-us" /> -->
 
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">

@@ -1,21 +1,23 @@
 @extends('layouts.canopy')
 
-@section('title', 'Postcode Reverse Lookup')
+@section('title', 'Nigerian Postcode Reverse Lookup')
+
+@section('description', 'Lookup area, street, town, or village for a given Nigerian postcode')
 
 @section('body')
 
 @include('nav.nav')
 <div itemscope itemtype="http://schema.org/WebSite">
-    <link itemprop="url" href="http://nigeriapostcodes.naijaz.com/postcodeReverseLookup"/>
-    <meta itemprop="name" content="Nigeria Postcode Reverse Lookup"/>
-    <meta itemprop="description" content="Lookup area, street, town, or village for a given postcode"/>
+    <link itemprop="url" href="http://www.postcodes.ng/postcodeReverseLookup"/>
+    <meta itemprop="name" content="Nigerian Postcode Reverse Lookup"/>
+    <meta itemprop="description" content="Lookup area, street, town, or village for a given Nigerian postcode"/>
     
 </div>
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-2">
             <p>
-                More often than not you will have a Nigeria postcode and you don't know where it represents.
+                More often than not you will have a Nigerian postcode and you don't know where it represents.
                 Well we've got you covered. Use the form below to find the area, or town, or village, or street it represents.
             </p>
             <div class="panel panel-primary">
