@@ -10,7 +10,7 @@
 
 <title>Nigerian Postcode Lookup Service - @yield('title')</title>
 <meta name="ROBOTS" content="INDEX,FOLLOW"/>
-<meta name="description" content="{{@yield('description')}}"/>
+<meta name="description" content="@yield('description')"/>
 <meta name="keywords" content="nigeria postcode,nigeria zipcode,nigeria state postcode,nigeria postal code,nigeria urban postcode,nigeria facility postcode"/>
 <!-- <link rel="alternate" href="http://nigeriapostcodes.naijaz.com" hreflang="en-us" /> -->
 
