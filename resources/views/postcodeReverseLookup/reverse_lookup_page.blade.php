@@ -16,10 +16,12 @@
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-md-offset-2">
-            <p>
-                More often than not you will have a Nigerian postcode and you don't know where it represents.
-                Well we've got you covered. Use the form below to find the area, or town, or village, or street it represents.
-            </p>
+            <div class="npc-section-content">
+                <p>
+                    More often than not you will have a Nigerian postcode and you don't know where it represents.
+                    Well we've got you covered. Use the form below to find the area, or town, or village, or street it represents.
+                </p>
+            </div>
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <h3 class="panel-title">Reverse Lookup Postcode</h3>
