@@ -31,10 +31,10 @@
              </div>
 
              <div id="npc-rp-town" class="form-group  npc-hidden">
-    			<label for="rp-town" class="col-md-4 control-label">Town/Village</label>
+    			<label for="rp-town" class="col-md-4 control-label">Village</label>
     			<div class="col-md-6">
                     <select class="form-control" id="rp-town-select" name="rp-town">
-                        <option value="">Select Town/Village</option>
+                        <option value="">Select Village</option>
                     </select>
                     <div id="rp-town-error" class="alert alert-danger npc-hidden" role="alert">
                         <span></span>
@@ -46,7 +46,7 @@
         <div id="rp-loading" class="npc-spinner npc-hidden"></div>
     </div>
     <div id="rp-result" class="panel-footer npc-hidden">
-        <p>The Postcode for <strong><span id="rp-result-town"></span></strong> town in <strong><span id="rp-result-lga"></span></strong> LGA is:</p>
+        <p>The Postcode for <strong><span id="rp-result-town"></span></strong> village in <strong><span id="rp-result-lga"></span></strong> LGA is:</p>
         <h3 id="rp-result-postcode"></h3>
     </div>
 </div>
