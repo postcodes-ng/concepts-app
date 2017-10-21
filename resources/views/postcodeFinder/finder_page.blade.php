@@ -41,7 +41,7 @@
                 </div>
             </div>
 
-            <div>
+            <div class="npc-section-content">
                 <p>
                     It is important to understand that Nigeria's postcode system is grouped into 3 categories;
                     <ul>
