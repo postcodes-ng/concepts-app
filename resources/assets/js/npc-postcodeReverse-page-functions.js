@@ -58,17 +58,17 @@ function getSuccessMessage(type) {
 
 function buildRpResultSummary(result) {
     var postcode = result.ruralPostcodeResponses[0].postcode;
-    var district = result.ruralPostcodeResponses[0].district;
+    var district = result.ruralPostcodeResponses[0].ruralAreaName;
     var lga = result.ruralPostcodeResponses[0].localGovernmentAreaName;
     var state = result.ruralPostcodeResponses[0].stateName;
     var resultSummaryDiv = jQuery('#rlkp-result-summary');
-    resultSummaryDiv.append('<p><strong>' + postcode + '</strong> is the postcode for <strong>' + district + '</strong> district in <strong>' + lga +  '</strong> LGA, <strong>' + state + '</strong> State.</p>');
-    resultSummaryDiv.append('<p><strong>' + district + '</strong> district is made up of the following villages.</p>');
+    resultSummaryDiv.append('<p><strong>' + postcode + '</strong> is the postcode for <strong>' + district + '</strong> rural area in <strong>' + lga +  '</strong> LGA, <strong>' + state + '</strong> State.</p>');
+    resultSummaryDiv.append('<p><strong>' + district + '</strong> rural area is made up of the following villages.</p>');
 
     var col = jQuery('<div>').addClass('col-md-4')
     var ul = jQuery('<ul>').addClass('list-group');
     jQuery.each(result.ruralPostcodeResponses, function(i, r) {
-        ul.append('<li class="list-group-item">'+r.town+'</li>');
+        ul.append('<li class="list-group-item">'+r.ruralVillageName+'</li>');
     });
     ul.appendTo(col);
     col.appendTo(resultSummaryDiv);
@@ -77,17 +77,17 @@ function buildRpResultSummary(result) {
 
 function buildUpResultSummary(result) {
     var postcode = result.urbanPostcodeResponses[0].postcode;
-    var area = result.urbanPostcodeResponses[0].area;
-    var town = result.urbanPostcodeResponses[0].town;
+    var area = result.urbanPostcodeResponses[0].urbanAreaName;
+    var town = result.urbanPostcodeResponses[0].urbanTownName;
     var state = result.urbanPostcodeResponses[0].stateName;
     var resultSummaryDiv = jQuery('#rlkp-result-summary');
-    resultSummaryDiv.append('<p><strong>' + postcode + '</strong> is the postcode for <strong>' + area + '</strong> area in <strong>' + town +  '</strong> town, <strong>' + state + '</strong> State.</p>');
-    resultSummaryDiv.append('<p><strong>' + area + '</strong> area is made up of the following streets.</p>');
+    resultSummaryDiv.append('<p><strong>' + postcode + '</strong> is the postcode for <strong>' + area + '</strong> urban area in <strong>' + town +  '</strong> town, <strong>' + state + '</strong> State.</p>');
+    resultSummaryDiv.append('<p><strong>' + area + '</strong> urban area is made up of the following streets.</p>');
 
     var col = jQuery('<div>').addClass('col-md-4')
     var ul = jQuery('<ul>').addClass('list-group');
     jQuery.each(result.urbanPostcodeResponses, function(i, r) {
-        ul.append('<li class="list-group-item">'+r.street+'</li>');
+        ul.append('<li class="list-group-item">'+r.urbanStreetName+'</li>');
     });
     ul.appendTo(col);
     col.appendTo(resultSummaryDiv);

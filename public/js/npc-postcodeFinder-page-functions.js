@@ -243,8 +243,8 @@ extractUpPostcode = function extractUpPostcode(street) {
     if (streetCache) {
         var result = streetCache[street];
 
-        var street = result.street;
-        var town = result.town;
+        var street = result.urbanStreetName;
+        var town = result.urbanTownName;
         var postcode = result.postcode;
 
         var resultDiv = jQuery('#up-result');
@@ -352,10 +352,10 @@ function buildUpStreetSuggestions(status, results) {
             streetCache = {};
             jQuery.each(results, function (i, result) {
                 count++;
-                var suggested = result.street;
+                var suggested = result.urbanStreetName;
                 var suggestedElement = '<a href="#" class="up-street-menu-item" onclick="extractUpPostcode(\'' + suggested + '\')">' + suggested + '</a>';
                 streetMenu.append(suggestedElement);
-                streetCache[result.street] = result;
+                streetCache[result.urbanStreetName] = result;
                 if (count === max) {
                     return false;
                 }
@@ -373,8 +373,10 @@ function getErrorText(type) {
         return 'Error fetching States';
     } else if (type === 'rp-lga' || type === 'fp-lga') {
         return 'Error fetching LGAs';
-    } else if (type === 'rp-town' || type === 'up-town') {
-        return 'Error fetching Towns';
+    } else if (type === 'up-town') {
+        return 'Error fetching Urban Towns';
+    } else if (type === 'rp-town') {
+        return 'Error fetching Rural Villages';
     } else if (type === 'fp-facility') {
         return 'Error fetching Facilities';
     }
@@ -386,7 +388,7 @@ function getDefaultOptionText(type) {
     } else if (type === 'rp-lga' || type === 'fp-lga') {
         return 'Select LGA';
     } else if (type === 'rp-town') {
-        return 'Select Town/Village';
+        return 'Select Village';
     } else if (type === 'up-town') {
         return 'Select Town';
     } else if (type === 'fp-facility') {
@@ -402,12 +404,12 @@ function buildOption(result, type) {
         value = result.localGovernmentAreaName + '|' + result.stateCode;
         return new Option(text, value);
     } else if (type === 'rp-town') {
-        text = result.town;
-        value = result.town + '|' + result.district + '|' + result.localGovernmentAreaName + '|' + result.stateName + '|' + result.postcode;
+        text = result.ruralVillageName;
+        value = result.ruralVillageName + '|' + result.ruralAreaName + '|' + result.localGovernmentAreaName + '|' + result.stateName + '|' + result.postcode;
         return new Option(text, value);
     } else if (type === 'up-town') {
-        text = result.town;
-        value = result.town;
+        text = result.urbanTownName;
+        value = result.urbanTownName;
         return new Option(text, value);
     } else if (type === 'fp-facility') {
         text = result.facilityName;
