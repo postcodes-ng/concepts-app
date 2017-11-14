@@ -8,8 +8,8 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="{{route('home')}}">
-                Postcodes.ng
-                &nbsp;<span><i class="glyphicon glyphicon-home"></i></span>
+                postcodes.ng
+                &nbsp;<span><i class="glyphicon glyphicon-map-marker"></i></span>
             </a>
         </div>
 
