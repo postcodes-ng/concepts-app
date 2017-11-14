@@ -1,9 +1,9 @@
 {
     "/js/app.js": "/js/app.js",
+    "/css/app.css": "/css/app.css",
     "/js/npc-postcodeReverse-page-functions.js": "/js/npc-postcodeReverse-page-functions.js",
     "/js/npc-postcodeFinder-page-functions.js": "/js/npc-postcodeFinder-page-functions.js",
     "/js/npc-polyfills.js": "/js/npc-polyfills.js",
     "/js/npc-declarations.js": "/js/npc-declarations.js",
-    "/js/npc-common-functions.js": "/js/npc-common-functions.js",
-    "/css/app.css": "/css/app.css"
+    "/js/npc-common-functions.js": "/js/npc-common-functions.js"
 }
