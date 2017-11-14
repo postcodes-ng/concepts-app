@@ -8,11 +8,26 @@
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
+/** 
+*   Bootstrap Overrides
+*/
+.navbar-inverse .navbar-brand {
+    color: darken($text-color, 70%);
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: darken($text-color, 70%);
+}
+/**
+*   End Bootstrap Override
+*/
+
 html, body {
     background-color: #fff;
-    color: #636b6f;
+    color: black;
     font-family: 'Raleway', sans-serif;
     font-weight: 100;
+    font-size: 18px;
     height: 100vh;
     margin: 0;
 }
@@ -40,17 +55,31 @@ html, body {
 #home {
     width: 100%;
     height: auto;
+}
+
+#home > #header {
     background-image: url("/img/home_background.jpg");
     background-repeat: repeat-y;
+    border-bottom: 5px $brand-warning solid;
+}
+
+#home > #header .header-title{
+    padding: 1em 0em 0em 0em;
+    text-align: center;
+    font-size: 400%;
+    color: white;
+    font-weight: bold;
+}
+
+#home > #header .header-content{
+    padding: 3em 0em 3em 0em;
+    text-align: center;
+    font-size: 30px;
+    color: white;
 }
 
 .content {
     text-align: center;
-}
-
-#home > .content {
-    padding-top: 30px;
-    padding-bottom: 20px;
 }
 
 .title {
@@ -192,6 +221,49 @@ a.npc-active-menu-item {
 .npc-section-content {
     font-size: 18px;
     text-align: left;
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
 
+.npc-section-wrapper.wrapper1 {
+    background: #fff;
+}
+
+.npc-section-wrapper.wrapper2 {
+    background: $brand-primary;
+    color: white;
+}
+
+.npc-section-wrapper.wrapper1, .npc-section-wrapper.wrapper2 {
+    padding-top: 3em;
+    padding-bottom: 3em;
+    text-align: center;
+    font-size: 30px;
+}
+
+.npc-section-wrapper.wrapper1 .btn, .npc-section-wrapper.wrapper2 .btn {
+    font-size: 25px;
+}
+
+.npc-section-wrapper.wrapper2 .btn {
+    font-size: 25px;
+    color: black;
+}
+
+.npc-section-wrapper.wrapper3 {
+    padding-top: 3em;
+    padding-bottom: 3em;
+    background: #fff;
+    text-align: left;
+}
+
+.npc-section-wrapper.wrapper1 h2, .npc-section-wrapper.wrapper2 h2 {
+    font-size: 40px;
+    font-weight: 700 !important;
+}
+
+.npc-section-wrapper.wrapper1 > a:hover,  .npc-section-wrapper.wrapper2 > a:hover {
+    text-decoration: none;
+    cursor: pointer;
 }
 
