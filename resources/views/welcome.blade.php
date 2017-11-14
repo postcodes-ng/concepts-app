@@ -6,9 +6,9 @@
 
 @section('body')
 <div itemscope itemtype="http://schema.org/WebSite">
-    <link itemprop="url" href="http://nigeriapostcodes.naijaz.com/"/>
+    <link itemprop="url" href="http://www.postcodes.ng/"/>
     <meta itemprop="name" content="Home"/>
-    <meta itemprop="description" content="Your one stop destination for all things postcodes in Nigeria"/>    
+    <meta itemprop="description" content="Your one stop destination for all things postcodes in Nigeria"/>
 </div>
         <div id="home" class="container">
 
@@ -54,7 +54,7 @@
                         </p>
 
                         <p>
-                        In Nigeria postcodes were introduced by NIPOST (Nigerian Postal Agency) in the year 2000, but despite NIPOST’s efforts in creating awareness and even creating a <a href="http://www.nigeriapostcode.com.ng/" target="_blank" >postcode finder site</a>, just like this one, that would help citizens in searching for and finding their postcode the Nigerian postcode system has not gained ground. 
+                        In Nigeria postcodes were introduced by NIPOST (Nigerian Postal Service) in the year 2000, but despite NIPOST’s efforts in creating awareness and even creating a <a href="http://www.nigeriapostcode.com.ng/" target="_blank" >postcode finder site</a>, just like this one, that would help citizens in searching for and finding their postcode the Nigerian postcode system has not gained ground.
                         </p>
 
                         <p>
@@ -67,11 +67,11 @@
                         </p>
 
                         <p>
-                        The above reasons are why <strong>postcodes.ng</strong> have come to be, and those are the problems that we intend to solve. 
+                        The above reasons are why <strong>postcodes.ng</strong> have come to be, and those are the problems that we intend to solve.
                         </p>
 
                         <p>
-                        First and foremost we have replicated the NIPOST site because we want to ensure that Nigerians have a reliable online source, not one that goes offline several months at a time (for example the NIPOST site just came back online on June of 2017 after being offline for about 9 months).
+                        First and foremost we have replicated the NIPOST site because we want to ensure that Nigerians have a reliable online source, not one that goes offline several months at a time (for example the NIPOST postcode finder site just came back online on June of 2017 after being offline for about 9 months).
                         </p>
 
                         <p>
