@@ -105,19 +105,19 @@ class PostcodeApiWrapper
     /**
      * Retrieves Nigerian Postcodes for Rural Areas in a State.
      */
-    public function getRuralPostcodes($stateCode, $lga = null, $district = null, $town = null)
+    public function getRuralPostcodes($stateCode, $lga = null, $ruralAreaName = null, $ruralVillageName = null)
     {
         $endpoint = 'postcodes/rural-postcodes';
         $params = [];
 
         $params['stateCode'] = $stateCode;
 
-        if (!empty($town)) {
-            $params['town'] = $town;
+        if (!empty($ruralVillageName)) {
+            $params['ruralVillageName'] = $ruralVillageName;
         }
 
-        if (!empty($district)) {
-            $params['district'] = $district;
+        if (!empty($ruralAreaName)) {
+            $params['ruralAreaName'] = $ruralAreaName;
         }
 
         if (!empty($lga)) {
@@ -136,23 +136,23 @@ class PostcodeApiWrapper
     /**
      * Retrieves Nigerian Postcodes for Urban Areas in a State.
      */
-    public function getUrbanPostcodes($stateCode, $town = null, $area = null, $street = null)
+    public function getUrbanPostcodes($stateCode, $urbanTownName = null, $urbanAreaName = null, $urbanStreetName = null)
     {
         $endpoint = 'postcodes/urban-postcodes';
         $params = [];
 
         $params['stateCode'] = $stateCode;
 
-        if (!empty($town)) {
-            $params['town'] = $town;
+        if (!empty($urbanTownName)) {
+            $params['urbanTownName'] = $urbanTownName;
         }
 
-        if (!empty($area)) {
-            $params['area'] = $area;
+        if (!empty($urbanAreaName)) {
+            $params['urbanAreaName'] = $urbanAreaName;
         }
 
-        if (!empty($street)) {
-            $params['street'] = $street;
+        if (!empty($urbanStreetName)) {
+            $params['urbanStreetName'] = $urbanStreetName;
         }
 
         $response = $this->sendRequest($endpoint, $params);
@@ -164,12 +164,12 @@ class PostcodeApiWrapper
         return $response;
     }
 
-    public function searchUrbanPostcodes($stateCode, $town, $hint) {
+    public function searchUrbanPostcodes($stateCode, $urbanTownName, $hint) {
         $endpoint = 'postcodes/urban-postcodes/search';
         $params = [];
 
         $params['stateCode'] = $stateCode;
-        $params['town'] = $town;
+        $params['urbanTownName'] = $urbanTownName;
         $params['hint'] = $hint;
 
         $response = $this->sendRequest($endpoint, $params);

@@ -98,11 +98,11 @@ class PostcodeFinderService
         }
 
         foreach ($urbanResponse as $data) {
-            $town = $data['town'];
+            $town = $data['urbanTownName'];
             if (empty($result[$town])) {
                 $result[$town] = 'hit';
                 $response = [];
-                $response['town'] = $town;
+                $response['urbanTownName'] = $town;
                 $response['stateCode'] = $data['stateCode'];
                 $responseArray[] = $response;
             }
@@ -121,12 +121,12 @@ class PostcodeFinderService
         }
 
         foreach ($urbanResponse as $data) {
-            if (empty($data['street'])
-                    || $data['street'] == ' ') {
+            if (empty($data['urbanStreetName'])
+                    || $data['urbanStreetName'] == ' ') {
                 continue;
             }
-            $data['street'] = $this->cleanupStreetName($data['street']);
-            $data['area'] = $this->cleanupAreaName($data['area']);
+            $data['urbanStreetName'] = $this->cleanupStreetName($data['urbanStreetName']);
+            $data['urbanAreaName'] = $this->cleanupAreaName($data['urbanAreaName']);
             $responseArray[] = $data;
         }
 
@@ -149,11 +149,9 @@ class PostcodeFinderService
         $street = trim($street);
 
         if ($this->commonFunctions->endsWith($street, ' ST.')) {
-            $street = str_ireplace(' ST.', ' STREET', $street);
+            $street = str_ireplace(' ST.', ' Street', $street);
         } else if ($this->commonFunctions->endsWith($street, ' Rd.')) {
-            $street = str_ireplace(' Rd.', ' ROAD', $street);
-        } else {
-            $street = $street . ' STREET';
+            $street = str_ireplace(' Rd.', ' Road', $street);
         }
 
         return $street;
