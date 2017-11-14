@@ -6,7 +6,7 @@
 
 @section('body')
 <div itemscope itemtype="http://schema.org/WebSite">
-    <link itemprop="url" href="http://nigeriapostcodes.naijaz.com/"/>
+    <link itemprop="url" href="http://www.postcodes.ng/"/>
     <meta itemprop="name" content="Home"/>
     <meta itemprop="description" content="Your one stop destination for all things postcodes in Nigeria"/>
 </div>
