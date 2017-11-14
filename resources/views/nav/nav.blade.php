@@ -8,7 +8,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="{{route('home')}}">
-                Nigeria Postcodes Finder
+                Postcodes.ng
                 &nbsp;<span><i class="glyphicon glyphicon-home"></i></span>
             </a>
         </div>
