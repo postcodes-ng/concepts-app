@@ -30,13 +30,25 @@
                 </div>
              </div>
 
-             <div id="npc-rp-town" class="form-group  npc-hidden">
-    			<label for="rp-town" class="col-md-4 control-label">Village</label>
+             <div id="npc-rp-area" class="form-group npc-hidden">
+             	<label for="rp-area" class="col-md-4 control-label">Area</label>
+             	<div class="col-md-6">
+                    <select class="form-control" id="rp-area-select" name="rp-area">
+                        <option value="">Select Rural Area</option>
+                    </select>
+                    <div id="rp-area-error" class="alert alert-danger npc-hidden" role="alert">
+                        <span></span>
+                    </div>
+                </div>
+             </div>
+
+             <div id="npc-rp-village" class="form-group  npc-hidden">
+    			<label for="rp-village" class="col-md-4 control-label">Village</label>
     			<div class="col-md-6">
-                    <select class="form-control" id="rp-town-select" name="rp-town">
+                    <select class="form-control" id="rp-village-select" name="rp-village">
                         <option value="">Select Village</option>
                     </select>
-                    <div id="rp-town-error" class="alert alert-danger npc-hidden" role="alert">
+                    <div id="rp-village-error" class="alert alert-danger npc-hidden" role="alert">
                         <span></span>
                     </div>
                 </div>
@@ -46,7 +58,7 @@
         <div id="rp-loading" class="npc-spinner npc-hidden"></div>
     </div>
     <div id="rp-result" class="panel-footer npc-hidden">
-        <p>The Postcode for <strong><span id="rp-result-town"></span></strong> village in <strong><span id="rp-result-lga"></span></strong> LGA is:</p>
+        <p>The Postcode for <strong><span id="rp-result-village"></span></strong> village in <strong><span id="rp-result-lga"></span></strong> LGA is:</p>
         <h3 id="rp-result-postcode"></h3>
     </div>
 </div>

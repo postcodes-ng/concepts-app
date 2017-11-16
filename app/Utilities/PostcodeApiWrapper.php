@@ -56,15 +56,226 @@ class PostcodeApiWrapper
 
     /**
      * Retrieves Nigerian LocalGovernmentArea/s for a State.
+     *
+     * @param string $stateCode
+     * @param integer $lgaId
+     * @return mixed
      */
     public function getLocalGovernmentAreas($stateCode, $lgaId = null)
     {
         $endpoint = 'geography/lgas';
+        $params = [];
         $params['stateCode'] = $stateCode;
 
-        if (!empty($lga)) {
+        if (!empty($lgaId)) {
             $params['lgaId'] = $lgaId;
         }
+
+        $response = $this->sendRequest($endpoint, $params);
+
+        if (!array_key_exists('error', $response)) {
+            return $response['content'];
+        }
+
+        return $response;
+    }
+
+    /**
+     * Retrieves Post Office Facilities for a given LGA.
+     *
+     * @param integer $lgaId
+     * @param integer $facilityId
+     * @return mixed
+     */
+    public function getFacilities($lgaId, $facilityId = null)
+    {
+        $endpoint = 'geography/facilities';
+        $params = [];
+
+        $params['lgaId'] = $lgaId;
+
+        if (!empty($facilityId)) {
+            $params['postOfficeFacilityId'] = $facilityId;
+        }
+
+        $response = $this->sendRequest($endpoint, $params);
+
+        if (!array_key_exists('error', $response)) {
+            return $response['content'];
+        }
+
+        return $response;
+    }
+
+    /**
+     * Retrieves the Rural Areas in a given LGA.
+     *
+     * @param integer $lgaId
+     * @param integer $ruralAreaId
+     * @return mixed
+     */
+    public function getRuralAreas($lgaId, $ruralAreaId = null)
+    {
+        $endpoint = 'geography/ruralAreas';
+        $params = [];
+
+        $params['lgaId'] = $lgaId;
+
+        if (!empty($ruralAreaId)) {
+            $params['ruralAreaId'] = $ruralAreaId;
+        }
+
+        $response = $this->sendRequest($endpoint, $params);
+
+        if (!array_key_exists('error', $response)) {
+            return $response['content'];
+        }
+
+        return $response;
+    }
+
+    /**
+     * Retrieves the Rural Villages in a given Rural Area.
+     *
+     * @param integer $ruralAreadId
+     * @param integer $ruralVillageId
+     * @return mixed
+     */
+    public function getRuralVillages($ruralAreaId, $ruralVillageId = null)
+    {
+        $endpoint = 'geography/ruralVillages';
+        $params = [];
+
+        $params['ruralAreaId'] = $ruralAreaId;
+
+        if (!empty($ruralVillageId)) {
+            $params['ruralVillageId'] = $ruralVillageId;
+        }
+
+        $response = $this->sendRequest($endpoint, $params);
+
+        if (!array_key_exists('error', $response)) {
+            return $response['content'];
+        }
+
+        return $response;
+    }
+
+    /**
+     * Retrieves the Urban Towns in a given State.
+     *
+     * @param string $stateCode
+     * @param integer $urbanTownId
+     * @return mixed
+     */
+    public function getUrbanTowns($stateCode, $urbanTownId = null)
+    {
+        $endpoint = 'geography/urbanTowns';
+        $params = [];
+
+        $params['stateCode'] = $stateCode;
+
+        if (!empty($urbanTownId)) {
+            $params['urbanTownId'] = $urbanTownId;
+        }
+
+        $response = $this->sendRequest($endpoint, $params);
+
+        if (!array_key_exists('error', $response)) {
+            return $response['content'];
+        }
+
+        return $response;
+    }
+
+    /**
+     * Retrieves the Urban Areas in a given Urban Town.
+     *
+     * @param integer $urbanTownId
+     * @param integer $urbanAreaId
+     * @return mixed
+     */
+    public function getUrbanAreas($urbanTownId, $urbanAreaId = null)
+    {
+        $endpoint = 'geography/urbanAreas';
+        $params = [];
+
+        $params['urbanTownId'] = $urbanTownId;
+
+        if (!empty($urbanAreaId)) {
+            $params['urbanAreaId'] = $urbanAreaId;
+        }
+
+        $response = $this->sendRequest($endpoint, $params);
+
+        if (!array_key_exists('error', $response)) {
+            return $response['content'];
+        }
+
+        return $response;
+    }
+
+    /**
+     * Retrieves the Urban Streets in a given Urban Area.
+     *
+     * @param integer $urbanAreaId
+     * @param integer $urbanStreetId
+     * @return mixed
+     */
+    public function getUrbanStreets($urbanAreaId, $urbanStreetId = null)
+    {
+        $endpoint = 'geography/urbanStreets';
+        $params = [];
+
+        $params['urbanAreaId'] = $urbanAreaId;
+
+        if (!empty($urbanStreetId)) {
+            $params['urbanStreetId'] = $urbanStreetId;
+        }
+
+        $response = $this->sendRequest($endpoint, $params);
+
+        if (!array_key_exists('error', $response)) {
+            return $response['content'];
+        }
+
+        return $response;
+    }
+
+    /**
+     * Search by postcode.
+     *
+     * @param string $postcode
+     * @return mixed
+     */
+    public function searchByPostcode($postcode)
+    {
+        $endpoint = 'search/byPostcode';
+        $params = [];
+
+        $params['postcode'] = $postcode;
+
+        $response = $this->sendRequest($endpoint, $params);
+
+        if (!array_key_exists('error', $response)) {
+            return $response['content'];
+        }
+
+        return $response;
+    }
+
+    /**
+     * Search by full or partial Street name.
+     *
+     * @param string $streetNameHint
+     * @return mixed
+     */
+    public function searchByStreetName($streetNameHint)
+    {
+        $endpoint = 'search/byStreet';
+        $params = [];
+
+        $params['streetNameHint'] = $streetNameHint;
 
         $response = $this->sendRequest($endpoint, $params);
 
