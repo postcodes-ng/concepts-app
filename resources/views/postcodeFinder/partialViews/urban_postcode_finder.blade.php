@@ -22,7 +22,7 @@
     			<label for="up-town" class="col-md-4 control-label">Town</label>
     			<div class="col-md-6">
                     <select class="form-control" id="up-town-select" name="up-town">
-                        <option value="">Select Town</option>
+                        <option value="">Select Urban Town</option>
                     </select>
                     <div id="up-town-error" class="alert alert-danger npc-hidden" role="alert">
                         <span></span>
@@ -30,6 +30,31 @@
                 </div>
              </div>
 
+             <div id="npc-up-area" class="form-group npc-hidden">
+    			<label for="up-area" class="col-md-4 control-label">Area</label>
+    			<div class="col-md-6">
+                    <select class="form-control" id="up-area-select" name="up-area">
+                        <option value="">Select Urban Area</option>
+                    </select>
+                    <div id="up-area-error" class="alert alert-danger npc-hidden" role="alert">
+                        <span></span>
+                    </div>
+                </div>
+             </div>
+
+             <div id="npc-up-street" class="form-group npc-hidden">
+    			<label for="up-street" class="col-md-4 control-label">Street</label>
+    			<div class="col-md-6">
+                    <select class="form-control" id="up-street-select" name="up-street">
+                        <option value="">Select Street</option>
+                    </select>
+                    <div id="up-street-error" class="alert alert-danger npc-hidden" role="alert">
+                        <span></span>
+                    </div>
+                </div>
+             </div>
+
+            <!--
              <div id="npc-up-street" class="form-group npc-hidden">
     			<label for="up-street" class="col-md-4 control-label">Street</label>
     			<div class="col-md-6">
@@ -40,7 +65,7 @@
                         </div>
                     </div>
                 </div>
-             </div>
+             </div> -->
 
     	</form>
     	<!-- spinner -->
