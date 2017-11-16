@@ -1,3 +1,13 @@
+// enter keyd
+jQuery(document).ready(function() {
+	$(document).bind('keypress', function(e) {
+        if(e.keyCode == 13){
+             $('#rlkp-button').trigger('click');
+             return false;
+        }
+    });
+});
+
 
 jQuery('#rlkp-button').on('click', function() {
     hideDiv('rlkp-result');
