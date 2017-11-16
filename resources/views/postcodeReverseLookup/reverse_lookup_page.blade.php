@@ -27,7 +27,7 @@
                     <h3 class="panel-title">Reverse Lookup Postcode</h3>
                 </div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="">
+                    <form class="form-horizontal" role="form">
                         {{ csrf_field() }}
                         <div class="form-group">
                             <label for="rlkp-postcode" class="col-md-4 control-label">Postcode</label>
