@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Illuminate\Support\Facades\Log;
 use App\Services\LookupService;
 
-class PostcodeFinderController extends Controller
+class LookupController extends Controller
 {
     /**
      *
@@ -22,7 +22,7 @@ class PostcodeFinderController extends Controller
     private $lookupService;
 
     /**
-     * Create a new controller instance.
+     * Creates a new controller instance.
      *
      * @return void
      */
@@ -41,34 +41,19 @@ class PostcodeFinderController extends Controller
                                 'fetchUrbanTowns',
                                 'fetchUrbanAreas',
                                 'fetchUrbanStreets',
-                                'fetchFacilities',
-                                'fetchRuralPostcodes',
-                                'fecthUrbanTowns',
-                                'suggestUrbanPostcodes',
-                                'fetchFacilityPostcodes',
-                                'reverseLookupPostcode'
+                                'fetchFacilities'
                         ]
                 ]);
     }
 
     /**
-     * Show Postcode Finder Page.
+     * Show Postcode Lookup Page.
      *
      * @return \Illuminate\View\View|\Illuminate\Contracts\View\Factory
      */
-    public function showPostcodeFinderPage()
+    public function showPostcodeLookupPage()
     {
-        return view('postcodeFinder.finder_page');
-    }
-
-    /**
-     * Show Postcode Finder Page.
-     *
-     * @return \Illuminate\View\View|\Illuminate\Contracts\View\Factory
-     */
-    public function showPostcodeReverseLookupPage()
-    {
-        return view('postcodeReverseLookup.reverse_lookup_page');
+        return view('lookup.finder_page');
     }
 
     /**
@@ -168,72 +153,5 @@ class PostcodeFinderController extends Controller
         $facilityId = $request->get('facilityId');
         $facilities = $this->lookupService->getFacilities($lgaId, $facilityId);
         return  $facilities;
-    }
-
-    /**
-     * Fetches the rural postcodes.
-     *
-     * @param Request $request
-     * @return array
-     */
-    public function fetchRuralPostcodes(Request $request) {
-        $stateCode = $request->get('stateCode');
-        $localGovtArea = $request->get('lga');
-        $ruralPostcodes = $this->postcodeFinderService->getRuralPostcodes($stateCode, $localGovtArea);
-        return  $ruralPostcodes;
-    }
-
-    /**
-     * Fetches Urban Towns in a given State.
-     *
-     * @param Request $request
-     * @return array
-     */
-    public function fecthUrbanTowns(Request $request) {
-        $stateCode = $request->get('stateCode');
-
-        $urbanTowns = $this->postcodeFinderService->fetchUrbanTowns($stateCode);
-        return $urbanTowns;
-    }
-
-    /**
-     * Provides suggestions rural postcode based on hint provided.
-     *
-     * @param Request $request
-     * @return array
-     */
-    public function suggestUrbanPostcodes(Request $request) {
-        $stateCode = $request->get('stateCode');
-        $town = $request->get('town');
-        $hint = $request->get('hint');
-
-        $urbanPostcodes = $this->postcodeFinderService->suggestUrbanPostcodes($stateCode, $town, $hint);
-
-        return $urbanPostcodes;
-    }
-
-    /**
-     * Fetches the facility postcodes.
-     *
-     * @param Request $request
-     * @return array
-     */
-    public function fetchFacilityPostcodes(Request $request) {
-        $stateCode = $request->get('stateCode');
-        $localGovtArea = $request->get('lga');
-        $facilityPostcodes = $this->postcodeFinderService->getFacilityPostcodes($stateCode, $localGovtArea);
-        return  $facilityPostcodes;
-    }
-
-    /**
-     * Reverse lookup postcode.
-     *
-     * @param Request $request
-     * @return array
-     */
-    public function reverseLookupPostcode(Request $request) {
-        $postCode = $request->get('postCode');
-        $response = $this->postcodeFinderService->reverseLookupPostcode($postCode);
-        return  $response;
     }
 }

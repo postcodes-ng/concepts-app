@@ -8,7 +8,7 @@
 
 @include('nav.nav')
 <div itemscope itemtype="http://schema.org/WebSite">
-    <link itemprop="url" href="http://www.postcodes.ng/postcodeFinder"/>
+    <link itemprop="url" href="http://www.postcodes.ng/lookup"/>
     <meta itemprop="name" content="Nigeria Postcode Lookup"/>
     <meta itemprop="description" content="Lookup Nigerian postcode for a given area, street, town, or village"/>    
 </div>
@@ -26,17 +26,17 @@
             <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="rural">
                     <div class="npc-tab-content">
-                        @include('postcodeFinder.partialViews.rural_postcode_finder')
+                        @include('lookup.partialViews.rural_postcode_finder')
                     </div>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="urban">
                     <div class="npc-tab-content">
-                        @include('postcodeFinder.partialViews.urban_postcode_finder')
+                        @include('lookup.partialViews.urban_postcode_finder')
                     </div>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="facility">
                     <div class="npc-tab-content">
-                        @include('postcodeFinder.partialViews.facility_postcode_finder')
+                        @include('lookup.partialViews.facility_postcode_finder')
                     </div>
                 </div>
             </div>

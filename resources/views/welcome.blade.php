@@ -34,7 +34,7 @@
                             <h2>Postcode Lookup</h2>
                             <p>Lookup Nigerian Urban, Rural, and Facility postcodes.</p>
                         <div>
-                            <a href="{{route('postcodeFinder')}}" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Lookup </a>
+                            <a href="{{route('lookup')}}" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Lookup </a>
                         </div>
                     </div>
                 </section>
@@ -45,7 +45,7 @@
                             <h2>Search By Postcode</h2>
                             <p>Find the Area, or Streets, or Villages associated with a given Nigerian postcode.</p>
                         <div>
-                            <a href="{{route('postcodeReverseLookup')}}" class="btn btn-warning"><span class="glyphicon glyphicon-search"></span> Search By Postcode </a>
+                            <a href="{{route('postcodeSearch')}}" class="btn btn-warning"><span class="glyphicon glyphicon-search"></span> Search By Postcode </a>
                         </div>
                     </div>
                 </section>

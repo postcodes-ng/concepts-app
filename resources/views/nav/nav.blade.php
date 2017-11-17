@@ -15,8 +15,8 @@
 
         <div class="collapse navbar-collapse" id="npc-collapsable-menu">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{route('postcodeFinder')}}">Postcode Finder</a></li>
-                <li><a href="{{route('postcodeReverseLookup')}}">Reverse Lookup</a></li>
+                <li><a href="{{route('lookup')}}">Postcode Lookup</a></li>
+                <li><a href="{{route('postcodeSearch')}}">Search By Postcode</a></li>
             </ul>
         </div>
   </div>
