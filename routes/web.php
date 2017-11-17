@@ -25,15 +25,9 @@ Route::get('/postcodeFinder', function() {
 Route::get('/postcodeReverseLookup', function() {
     return redirect('/search/postcode');
 });
-Route::get('/lookup', 'LookupController@showPostcodeFinderPage')->name('lookup');
+Route::get('/lookup', 'LookupController@showPostcodeLookupPage')->name('lookup');
 Route::get('/api/lookup/states', 'LookupController@fetchStates');
 Route::get('/api/lookup/lgas', 'LookupController@fetchLocalGovernmentAreas');
-
-Route::get('/api/rural-postcodes', 'LookupController@fetchRuralPostcodes');
-Route::get('/api/facility-postcodes', 'LookupController@fetchFacilityPostcodes');
-Route::get('/api/fetch-urban-towns', 'LookupController@fecthUrbanTowns');
-Route::get('/api/suggest-urban-postcodes', 'LookupController@suggestUrbanPostcodes');
-Route::get('/api/reverse-lookup-postcode', 'LookupController@reverseLookupPostcode');
 
 Route::get('/api/lookup/facilities', 'LookupController@fetchFacilities');
 Route::get('/api/lookup/ruralAreas', 'LookupController@fetchRuralAreas');
