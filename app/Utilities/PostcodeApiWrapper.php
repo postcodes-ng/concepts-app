@@ -250,7 +250,7 @@ class PostcodeApiWrapper
      */
     public function searchByPostcode($postcode)
     {
-        $endpoint = 'search/byPostcode';
+        $endpoint = 'search/bypostcode';
         $params = [];
 
         $params['postcode'] = $postcode;

@@ -100,7 +100,7 @@ function makeReverseLookupRequest(spinnerId, responseHandler) {
         startSpinner(spinnerId);
 
         // Send to the server
-        makeRequest('/api/reverse-lookup-postcode?postCode=' + postcode, 'GET', null, responseHandler, spinnerId);
+        makeRequest('/api/search/byPostcode?postCode=' + postcode, 'GET', null, responseHandler, spinnerId);
     }
 }
 
@@ -109,7 +109,7 @@ function buildReverseLookupResult(status, result) {
     var errorDiv = jQuery('#rlkp-error');
     var successDiv = jQuery('#rlkp-success');
     if (status === 'success') {
-        var type = result.postcodeType;
+        var type = result[0].postcodeType;
         successDiv.children('span').text(getSuccessMessage(type));
         errorDiv.addClass('npc-hidden');
         successDiv.removeClass('npc-hidden');
@@ -117,11 +117,11 @@ function buildReverseLookupResult(status, result) {
         var resultSummaryDiv = jQuery('#rlkp-result-summary');
         resultSummaryDiv.empty();
 
-        if (type === 'rural') {
+        if (type === 'RURAL') {
             buildRpResultSummary(result);
-        } else if (type === 'urban') {
+        } else if (type === 'URBAN') {
             buildUpResultSummary(result);
-        } else if (type === 'facility') {
+        } else if (type === 'FACILITY') {
             buildFpResultSummary(result);
         }
     } else {
@@ -134,27 +134,26 @@ function buildReverseLookupResult(status, result) {
 
 function getSuccessMessage(type) {
     var message = '';
-    if (type === 'rural' || type === 'facility') {
+    if (type === 'RURAL' || type === 'FACILITY') {
         message = 'Found! This is a ' + type + ' postcode. See info below';
-    } else if (type === 'urban') {
+    } else if (type === 'URBAN') {
         message = 'Found! This is an ' + type + ' postcode. See info below';
     }
     return message;
 }
 
 function buildRpResultSummary(result) {
-    var postcode = result.ruralPostcodeResponses[0].postcode;
-    var district = result.ruralPostcodeResponses[0].ruralAreaName;
-    var lga = result.ruralPostcodeResponses[0].localGovernmentAreaName;
-    var state = result.ruralPostcodeResponses[0].stateName;
+    var district = result[0].entity.entityName;
+    var lga = result[0].entity.localGovernmentAreaName;
+    var state = result[0].entity.stateName;
     var resultSummaryDiv = jQuery('#rlkp-result-summary');
-    resultSummaryDiv.append('<p><strong>' + postcode + '</strong> is the postcode for <strong>' + district + '</strong> rural area in <strong>' + lga + '</strong> LGA, <strong>' + state + '</strong> State.</p>');
+    resultSummaryDiv.append('<p>This is the postcode for <strong>' + district + '</strong> rural area in <strong>' + lga + '</strong> LGA, <strong>' + state + '</strong> State.</p>');
     resultSummaryDiv.append('<p><strong>' + district + '</strong> rural area is made up of the following villages.</p>');
 
     var col = jQuery('<div>').addClass('col-md-4');
     var ul = jQuery('<ul>').addClass('list-group');
-    jQuery.each(result.ruralPostcodeResponses, function (i, r) {
-        ul.append('<li class="list-group-item">' + r.ruralVillageName + '</li>');
+    jQuery.each(result[0].subEntities, function (i, r) {
+        ul.append('<li class="list-group-item">' + r.entityName + '</li>');
     });
     ul.appendTo(col);
     col.appendTo(resultSummaryDiv);
@@ -162,18 +161,17 @@ function buildRpResultSummary(result) {
 }
 
 function buildUpResultSummary(result) {
-    var postcode = result.urbanPostcodeResponses[0].postcode;
-    var area = result.urbanPostcodeResponses[0].urbanAreaName;
-    var town = result.urbanPostcodeResponses[0].urbanTownName;
-    var state = result.urbanPostcodeResponses[0].stateName;
+    var area = result[0].entity.entityName;
+    var town = result[0].entity.urbanTownName;
+    var state = result[0].entity.stateName;
     var resultSummaryDiv = jQuery('#rlkp-result-summary');
-    resultSummaryDiv.append('<p><strong>' + postcode + '</strong> is the postcode for <strong>' + area + '</strong> urban area in <strong>' + town + '</strong> town, <strong>' + state + '</strong> State.</p>');
+    resultSummaryDiv.append('<p>This is the postcode for <strong>' + area + '</strong> urban area in <strong>' + town + '</strong> town, <strong>' + state + '</strong> State.</p>');
     resultSummaryDiv.append('<p><strong>' + area + '</strong> urban area is made up of the following streets.</p>');
 
     var col = jQuery('<div>').addClass('col-md-4');
     var ul = jQuery('<ul>').addClass('list-group');
-    jQuery.each(result.urbanPostcodeResponses, function (i, r) {
-        ul.append('<li class="list-group-item">' + r.urbanStreetName + '</li>');
+    jQuery.each(result[0].subEntities, function (i, r) {
+        ul.append('<li class="list-group-item">' + r.entityName + '</li>');
     });
     ul.appendTo(col);
     col.appendTo(resultSummaryDiv);
@@ -181,12 +179,11 @@ function buildUpResultSummary(result) {
 }
 
 function buildFpResultSummary(result) {
-    var postcode = result.facilityPostcodeResponses[0].postcode;
-    var facility = result.facilityPostcodeResponses[0].facilityName;
-    var lga = result.facilityPostcodeResponses[0].localGovernmentAreaName;
-    var state = result.facilityPostcodeResponses[0].stateName;
+    var facility = result[0].entity.entityName;
+    var lga = result[0].entity.localGovernmentAreaName;
+    var state = result[0].entity.stateName;
     var resultSummaryDiv = jQuery('#rlkp-result-summary');
-    resultSummaryDiv.append('<p><strong>' + postcode + '</strong> is the postcode for <strong>' + facility + '</strong> facility in <strong>' + lga + '</strong> LGA, <strong>' + state + '</strong> State.</p>');
+    resultSummaryDiv.append('<p>This is the postcode for <strong>' + facility + '</strong> facility in <strong>' + lga + '</strong> LGA, <strong>' + state + '</strong> State.</p>');
 
     resultSummaryDiv.removeClass('npc-hidden');
 }
