@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Illuminate\Support\Facades\Log;
 use App\Services\LookupService;
 
-class PostcodeFinderController extends Controller
+class LookupController extends Controller
 {
     /**
      *
@@ -22,7 +22,7 @@ class PostcodeFinderController extends Controller
     private $lookupService;
 
     /**
-     * Create a new controller instance.
+     * Creates a new controller instance.
      *
      * @return void
      */
@@ -58,17 +58,7 @@ class PostcodeFinderController extends Controller
      */
     public function showPostcodeFinderPage()
     {
-        return view('postcodeFinder.finder_page');
-    }
-
-    /**
-     * Show Postcode Finder Page.
-     *
-     * @return \Illuminate\View\View|\Illuminate\Contracts\View\Factory
-     */
-    public function showPostcodeReverseLookupPage()
-    {
-        return view('postcodeReverseLookup.reverse_lookup_page');
+        return view('lookup.finder_page');
     }
 
     /**

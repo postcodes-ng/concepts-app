@@ -10,9 +10,9 @@
   <loc>http://www.postcodes.ng/</loc>
 </url>
 <url>
-  <loc>http://www.postcodes.ng/postcodeFinder</loc>
+  <loc>http://www.postcodes.ng/lookup</loc>
 </url>
 <url>
-  <loc>http://www.postcodes.ng/postcodeReverseLookup</loc>
+  <loc>http://www.postcodes.ng/search/postcode</loc>
 </url>
 </urlset>

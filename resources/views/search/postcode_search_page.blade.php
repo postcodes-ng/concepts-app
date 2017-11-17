@@ -8,8 +8,8 @@
 
 @include('nav.nav')
 <div itemscope itemtype="http://schema.org/WebSite">
-    <link itemprop="url" href="http://www.postcodes.ng/postcodeReverseLookup"/>
-    <meta itemprop="name" content="Nigerian Postcode Reverse Lookup"/>
+    <link itemprop="url" href="http://www.postcodes.ng/search/postcode"/>
+    <meta itemprop="name" content="Search By Postcode"/>
     <meta itemprop="description" content="Lookup area, street, town, or village for a given Nigerian postcode"/>
     
 </div>
