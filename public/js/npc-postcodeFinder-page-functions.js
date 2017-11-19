@@ -280,12 +280,27 @@ function extractRpPostcode(value) {
     var values = value.split('|');
     var village = values[0];
     var lga = values[1];
-    var postcode = values[2];
+    var postcodes = values[2].split(',');
 
     var resultDiv = jQuery('#rp-result');
+    var postcodesList = jQuery('#rp-result-postcodes');
+    postcodesList.empty();
     jQuery('#rp-result-village').text(village);
     jQuery('#rp-result-lga').text(lga);
-    jQuery('#rp-result-postcode').text(postcode);
+    if (postcodes.length > 1) {
+        jQuery('#rp-result-relationship').text("intersects the following postcodes");
+    } else {
+        jQuery('#rp-result-relationship').text("is within this postcode");
+    }
+
+    jQuery.each(postcodes, function (i, postcode) {
+        var Objli = $('<li></li>');
+        var Objh3 = $('<h3></h3>');
+
+        Objh3.text(postcode);
+        Objli.append(Objh3);
+        postcodesList.append(Objli);
+    });
 
     resultDiv.removeClass("npc-hidden");
 }
@@ -294,12 +309,27 @@ function extractUpPostcode(value) {
     var values = value.split('|');
     var street = values[0];
     var town = values[1];
-    var postcode = values[2];
+    var postcodes = values[2].split(',');
 
     var resultDiv = jQuery('#up-result');
+    var postcodesList = jQuery('#up-result-postcodes');
+    postcodesList.empty();
     jQuery('#up-result-street').text(street);
     jQuery('#up-result-town').text(town);
-    jQuery('#up-result-postcode').text(postcode);
+    if (postcodes.length > 1) {
+        jQuery('#up-result-relationship').text("intersects the following postcodes");
+    } else {
+        jQuery('#up-result-relationship').text("is within this postcode");
+    }
+
+    jQuery.each(postcodes, function (i, postcode) {
+        var Objli = $('<li></li>');
+        var Objh3 = $('<h3></h3>');
+
+        Objh3.text(postcode);
+        Objli.append(Objh3);
+        postcodesList.append(Objli);
+    });
 
     resultDiv.removeClass("npc-hidden");
 }
@@ -490,7 +520,7 @@ function buildOption(result, type) {
         return new Option(text, value);
     } else if (type === 'rp-village') {
         text = result.ruralVillageName;
-        value = result.ruralVillageName + '|' + result.localGovernmentAreaName + '|' + result.postcode;
+        value = result.ruralVillageName + '|' + result.localGovernmentAreaName + '|' + result.postcodes.join();
         return new Option(text, value);
     } else if (type === 'up-area') {
         text = result.urbanAreaName;
@@ -502,7 +532,7 @@ function buildOption(result, type) {
         return new Option(text, value);
     } else if (type === 'up-street') {
         text = result.urbanStreetName;
-        value = result.urbanStreetName + '|' + result.urbanTownName + '|' + result.postcode;
+        value = result.urbanStreetName + '|' + result.urbanTownName + '|' + result.postcodes.join();
         return new Option(text, value);
     } else if (type === 'fp-facility') {
         text = result.facilityName;
