@@ -72,7 +72,7 @@
         <div id="up-loading" class="npc-spinner npc-hidden"></div>
     </div>
     <div id="up-result" class="panel-footer npc-hidden">
-        <p>The Postcode for <strong><span id="up-result-street"></span></strong> in <strong><span id="up-result-town"></span></strong> town is:</p>
-        <h3 id="up-result-postcode"></h3>
+        <p><strong><span id="up-result-street"></span></strong> in <strong><span id="up-result-town"></span></strong> town <span id="up-result-relationship"></span>:</p>
+        <ul id="up-result-postcodes"></ul>
     </div>
 </div>

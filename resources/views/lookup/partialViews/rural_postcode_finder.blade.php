@@ -58,7 +58,7 @@
         <div id="rp-loading" class="npc-spinner npc-hidden"></div>
     </div>
     <div id="rp-result" class="panel-footer npc-hidden">
-        <p>The Postcode for <strong><span id="rp-result-village"></span></strong> village in <strong><span id="rp-result-lga"></span></strong> LGA is:</p>
-        <h3 id="rp-result-postcode"></h3>
+        <p><strong><span id="rp-result-village"></span></strong> village in <strong><span id="rp-result-lga"></span></strong> LGA <span id="rp-result-relationship"></span>:</p>
+        <ul id="rp-result-postcodes"></ul>
     </div>
 </div>
