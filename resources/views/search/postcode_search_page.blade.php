@@ -43,7 +43,7 @@
                         </div>
                     </form>
                     <!-- spinner -->
-                    <div id="rlkp-loading" class="npc-spinner npc-hidden"></div>
+                    <div id="rlkp-loading" class="npc-spinner-medium npc-hidden"></div>
                 </div>
                 <div id="rlkp-result" class="panel-footer npc-hidden">
                     <div id="rlkp-error" class="alert alert-danger npc-hidden" role="alert">

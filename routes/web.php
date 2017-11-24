@@ -39,4 +39,7 @@ Route::get('/api/lookup/urbanStreets', 'LookupController@fetchUrbanStreets');
 Route::get('/search/postcode', 'SearchController@showPostcodeSearchPage')->name('postcodeSearch');
 Route::get('/api/search/byPostcode', 'SearchController@searchByPostcode');
 
+Route::get('/map', 'MapController@w3wMap')->name('map');
+Route::get('/api/map/w3wAddress', 'MapController@getWhat3WordsAddress');
+
 

@@ -17,6 +17,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{route('lookup')}}">Postcode Lookup</a></li>
                 <li><a href="{{route('postcodeSearch')}}">Search By Postcode</a></li>
+                <li><a href="{{route('map')}}">Map</a></li>
             </ul>
         </div>
   </div>

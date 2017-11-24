@@ -69,7 +69,7 @@
 
     	</form>
     	<!-- spinner -->
-        <div id="up-loading" class="npc-spinner npc-hidden"></div>
+        <div id="up-loading" class="npc-spinner-medium npc-hidden"></div>
     </div>
     <div id="up-result" class="panel-footer npc-hidden">
         <p><strong><span id="up-result-street"></span></strong> in <strong><span id="up-result-town"></span></strong> town <span id="up-result-relationship"></span>:</p>

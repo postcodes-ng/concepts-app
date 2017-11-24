@@ -158,20 +158,20 @@ function makeUrbanAreaRequest(value) {
 	var urbanTownId = value;
     
     //start spinner
-    startSpinner('rp-loading');
+    startSpinner('up-loading');
 	
 	// Send to the server
-	makeRequest('/api/lookup/urbanAreas?urbanTownId=' + urbanTownId, 'GET', null, buildUpAreaResult, 'rp-loading');
+	makeRequest('/api/lookup/urbanAreas?urbanTownId=' + urbanTownId, 'GET', null, buildUpAreaResult, 'up-loading');
 }
 
 function makeUrbanStreetRequest(value) {
 	var urbanAreaId = value;
     
     //start spinner
-    startSpinner('rp-loading');
+    startSpinner('up-loading');
 	
 	// Send to the server
-	makeRequest('/api/lookup/urbanStreets?urbanAreaId=' + urbanAreaId, 'GET', null, buildUpStreetResult, 'rp-loading');
+	makeRequest('/api/lookup/urbanStreets?urbanAreaId=' + urbanAreaId, 'GET', null, buildUpStreetResult, 'up-loading');
 }
 
 function makeFacilitiesRequest(value) {

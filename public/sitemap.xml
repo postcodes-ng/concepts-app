@@ -15,4 +15,7 @@
 <url>
   <loc>http://www.postcodes.ng/search/postcode</loc>
 </url>
+<url>
+  <loc>http://www.postcodes.ng/map</loc>
+</url>
 </urlset>

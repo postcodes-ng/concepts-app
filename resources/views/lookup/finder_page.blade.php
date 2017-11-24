@@ -59,7 +59,7 @@
 			
         </div>
         <!-- spinner -->
-        <div id="page-loading" class="npc-spinner npc-hidden"></div>
+        <div id="page-loading" class="npc-spinner-medium npc-hidden"></div>
     </div>
 </div>
 @endsection

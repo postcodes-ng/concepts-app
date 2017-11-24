@@ -120,15 +120,34 @@ html, body {
     float: right;
 }
 
-.npc-spinner {
-  border:3px solid #f3f3f3;
+.npc-spinner, .npc-spinner-medium, .npc-spinner-small {
+  border-color: #f3f3f3;
+  border-style: solid;
   border-radius: 50%;
-  border-top: 3px solid blue;
-  border-bottom: 3px solid blue;
+  border-top-color: $brand-primary;
+  border-bottom-color: $brand-primary;
+  border-top-style: solid;
+  border-bottom-style: solid;
   width: 30px;
   height: 30px;
   -webkit-animation: spin 2s linear infinite;
   animation: spin 2s linear infinite;
+}
+
+.npc-spinner-medium {
+    border-width: 3px;
+    border-top-width: 3px;
+    border-bottom-width: 3px;
+    width: 30px;
+    height: 30px;
+}
+
+.npc-spinner-small {
+    border-width: 2px;
+    border-top-width: 2px;
+    border-bottom-width: 2px;
+    width: 15px;
+    height: 15px;
 }
 
 @-webkit-keyframes spin {
@@ -233,14 +252,24 @@ a.npc-active-menu-item {
     color: white;
 }
 
-.npc-section-wrapper.wrapper1, .npc-section-wrapper.wrapper2 {
+.npc-section-wrapper.wrapper3 {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 3%,rgba(0,0,0,0.65) 98%,rgba(0,0,0,0.65) 100%),
+     url("/img/npc_map_section_bkgrd.png");
+    color: white;
+}
+
+.npc-section-wrapper.wrapper1,
+ .npc-section-wrapper.wrapper2,
+  .npc-section-wrapper.wrapper3 {
     padding-top: 3em;
     padding-bottom: 3em;
     text-align: center;
     font-size: 30px;
 }
 
-.npc-section-wrapper.wrapper1 .btn, .npc-section-wrapper.wrapper2 .btn {
+.npc-section-wrapper.wrapper1 .btn,
+ .npc-section-wrapper.wrapper2 .btn,
+ .npc-section-wrapper.wrapper3 .btn {
     font-size: 25px;
 }
 
@@ -249,20 +278,37 @@ a.npc-active-menu-item {
     color: black;
 }
 
-.npc-section-wrapper.wrapper3 {
+.npc-section-wrapper.wrapper4 {
     padding-top: 3em;
     padding-bottom: 3em;
     background: #fff;
     text-align: left;
 }
 
-.npc-section-wrapper.wrapper1 h2, .npc-section-wrapper.wrapper2 h2 {
+.npc-section-wrapper.wrapper1 h2,
+ .npc-section-wrapper.wrapper2 h2,
+ .npc-section-wrapper.wrapper3 h2 {
     font-size: 40px;
     font-weight: 700 !important;
 }
 
-.npc-section-wrapper.wrapper1 > a:hover,  .npc-section-wrapper.wrapper2 > a:hover {
+.npc-section-wrapper.wrapper1 > a:hover,
+ .npc-section-wrapper.wrapper2 > a:hover,
+ .npc-section-wrapper.wrapper3 > a:hover {
     text-decoration: none;
     cursor: pointer;
+}
+
+/**
+* W3W Map
+*/
+#npc-map {
+    width: 100%;
+    height: 740px;
+    margin-top: -22px;
+}
+
+#npc-infoWindowContent {
+    padding-top: 15px;
 }
 
