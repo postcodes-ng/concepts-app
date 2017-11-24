@@ -26,6 +26,12 @@
         },
         "CACHE_TTL": {
             "required": true
+        },
+        "W3W_API_BASE_URL": {
+            "required": true
+        },
+        "W3W_API_KEY": {
+            "required": true
         }
 	},
 	"formation": {
