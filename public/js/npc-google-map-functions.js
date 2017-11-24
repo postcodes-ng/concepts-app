@@ -83,7 +83,7 @@ var npcMarkers = [];
 var markerImage = '/img/geolocation-marker.png';
 var nigeriaAdminLevel2Geojson = 'https://opendata.arcgis.com/datasets/6bb5e3eb654645ae944a697208b830ff_0.geojson';
 
-initW3wMap = function initW3wMap() {
+initNpcMap = function initNpcMap() {
   var abuja = { lat: 9.027522, lng: 7.240537 };
   var map = new google.maps.Map(document.getElementById('npc-map'), {
     zoom: 7,

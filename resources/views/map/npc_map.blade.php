@@ -16,5 +16,5 @@
 
 @push('scripts')
 <script src="{{ asset('js/npc-google-map-functions.js') }}"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWK1anKqIUcrCgBERz7BxWWcrdxpKbYGs&callback=initW3wMap"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDWK1anKqIUcrCgBERz7BxWWcrdxpKbYGs&callback=initNpcMap"></script>
 @endpush
