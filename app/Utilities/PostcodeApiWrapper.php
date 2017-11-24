@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Cache;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\ServerException;
+use App\Utilities\CommonFunctions;
 
 class PostcodeApiWrapper
 {
@@ -26,11 +27,17 @@ class PostcodeApiWrapper
      */
     private $httpClient;
 
-    public function __construct()
+    /**
+     * @var CommonFunctions
+     */
+    private $commonFunctions;
+
+    public function __construct(CommonFunctions $commonFunctions)
     {
         $this->baseUri = env("POSTCODE_API_BASE_URL");
         $this->apiKey = env("NPC_API_KEY");
         $this->httpClient = new HttpClient($this->baseUri);
+        $this->commonFunctions = $commonFunctions;
     }
 
     /**
@@ -424,8 +431,8 @@ class PostcodeApiWrapper
         try {
             Log::info('REQUEST: ' . $endpoint);
 
-            $cacheKey = $this->getCacheKey($endpoint, $params);
-            $responseArray = $this->retrieveFromCache($cacheKey);
+            $cacheKey = $this->commonFunctions->getCacheKey($endpoint, $params);
+            $responseArray = $this->commonFunctions->retrieveFromCache($cacheKey);
 
             if ($responseArray == null) {
                 $response = $this->httpClient->makeRequest($endpoint, $params, $method, $clientOptions,
@@ -433,11 +440,11 @@ class PostcodeApiWrapper
 
                 Log::info('RESPONSE: ' . $response->getBody());
 
-                $responseArray = $this->convertToAssociativeArray($response->getBody()) ['response'];
-                $this->storeInCache($cacheKey, $responseArray);
+                $responseArray = $this->commonFunctions->convertToAssociativeArray($response->getBody()) ['response'];
+                $this->commonFunctions->storeInCache($cacheKey, $responseArray);
             }
         } catch ( ClientException $ex ) {
-            $response = $this->convertToAssociativeArray(
+            $response = $this->commonFunctions->convertToAssociativeArray(
                     $ex->getResponse()
                         ->getBody());
 
@@ -463,51 +470,4 @@ class PostcodeApiWrapper
         return $responseArray;
     }
 
-    /**
-     * Decodes a json object.
-     *
-     * @param string $string The string to decode.
-     *
-     * @return associative array.
-     * @throws \Exception Response is not a valid JSON string.
-     */
-    public function convertToAssociativeArray($string)
-    {
-        $responseArray = json_decode($string, true);
-
-        return $responseArray;
-    }
-
-    /**
-     * Build the cacheKey.
-     */
-    private function getCacheKey($endpoint, $params) {
-        $cacheKey = $endpoint;
-
-        foreach ($params as $key => $value) {
-            $key = str_replace(' ', '', strtolower($key));
-            $value = str_replace(' ', '', strtolower($value));
-            $keyValue = $key . '_' . $value;
-            $cacheKey = $cacheKey . '|' . $keyValue;
-        }
-
-        return $cacheKey;
-    }
-
-    private function retrieveFromCache($cacheKey) {
-        $value = null;
-        if (Cache::has($cacheKey)) {
-            $value = Cache::get($cacheKey);
-            Log::info('CACHE HIT: ' . $cacheKey);
-        } else {
-            Log::info('CACHE MISS: ' . $cacheKey);
-        }
-
-        return $value;
-    }
-
-    private function storeInCache($cacheKey, $item) {
-        $expirationInMinutes = Config::get('app.cache_ttl');
-        Cache::put($cacheKey, $item, $expirationInMinutes);
-    }
 }

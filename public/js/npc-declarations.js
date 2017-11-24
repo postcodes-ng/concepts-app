@@ -92,6 +92,7 @@ var startSpinner;
 var stopSpinner;
 var extractUpPostcode;
 var hideDiv;
+var initNpcMap;
 
 /***/ })
 

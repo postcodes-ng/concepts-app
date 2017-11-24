@@ -43,7 +43,7 @@
              </div>
     	</form>
     	<!-- spinner -->
-        <div id="fp-loading" class="npc-spinner npc-hidden"></div>
+        <div id="fp-loading" class="npc-spinner-medium npc-hidden"></div>
     </div>
     <div id="fp-result" class="panel-footer npc-hidden">
         <p>The Postcode for <strong><span id="fp-result-facility"></span></strong> facility in <strong><span id="fp-result-lga"></span></strong> LGA is:</p>

@@ -2,6 +2,7 @@
 namespace App\Services;
 
 use App\Utilities\PostcodeApiWrapper;
+use App\Utilities\W3WApiWrapper;
 
 class LookupService
 {
@@ -10,9 +11,16 @@ class LookupService
      */
     private $postcodeApiWrapper;
 
-    public function __construct(PostcodeApiWrapper $postcodeApiWrapper)
+    /**
+     * @var W3WApiWrapper
+     */
+    private $w3wApiWrapper;
+
+    public function __construct(PostcodeApiWrapper $postcodeApiWrapper, W3WApiWrapper $w3wApiWrapper)
     {
         $this->postcodeApiWrapper = $postcodeApiWrapper;
+
+        $this->w3wApiWrapper = $w3wApiWrapper;
     }
 
     public function getStates()
@@ -117,6 +125,19 @@ class LookupService
         }
 
         return $response;
+    }
+
+    public function getWhat3WordsAddress($lat, $lng)
+    {
+        $emptyResponse = [];
+        
+        $response = $this->w3wApiWrapper->reverseGeocode($lat, $lng);
+
+        if (array_key_exists('error', $response)) {
+            return $emptyResponse;
+        }
+
+        return ['w3wAddress' => $response['words'] ];
     }
 
 }

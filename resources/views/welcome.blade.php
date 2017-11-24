@@ -53,6 +53,17 @@
             <div class="npc-section-wrapper wrapper3">
                 <section class="row">
                     <div class="col-md-8 col-md-offset-2">
+                            <h2>Map Search</h2>
+                            <p>Use the Map feature to easily locate your what3words address.</p>
+                        <div>
+                            <a href="{{route('map')}}" class="btn btn-primary"><span class="glyphicon glyphicon-map-marker"></span> Map Search </a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="npc-section-wrapper wrapper4">
+                <section class="row">
+                    <div class="col-md-8 col-md-offset-2">
                         <p>
                         A postcode, for all intents and purposes, is a basic spatial unit that represents a group of addresses thereby giving context to a given geographical location. Postcodes are used in many parts of the world in steering mail from an origin to a final destination, but the implementation differs slightly from country to country.
                         </p>
