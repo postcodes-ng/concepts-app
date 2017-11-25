@@ -11,7 +11,8 @@ initNpcMap = function () {
       zoom: 7,
       minZoom: 7,
       center: abuja,
-      mapTypeId: 'roadmap'
+      mapTypeId: 'roadmap',
+      gestureHandling: 'greedy'
     });
 
     map.data.loadGeoJson(nigeriaAdminLevel2Geojson);
