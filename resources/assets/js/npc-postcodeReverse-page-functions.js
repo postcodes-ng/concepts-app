@@ -8,6 +8,16 @@ jQuery(document).ready(function() {
     });
 });
 
+/*
+function toggleIcon(e) {
+    $(e.target)
+        .prev('#rlkp-result-table-body')
+        .children('tr.first')
+        .find(".more-less")
+        .toggleClass('glyphicon-plus glyphicon-minus');
+}
+$('.rlkp-result-table-row').on('hide.bs.collapse', toggleIcon);
+$('.rlkp-result-table-row').on('show.bs.collapse', toggleIcon);*/
 
 jQuery('#rlkp-button').on('click', function() {
     hideDiv('rlkp-result');
@@ -66,39 +76,27 @@ function getSuccessMessage(type) {
     return message;
 }
 
-function buildRpResultSummary(result) {
-    var district = result[0].entity.entityName;
-    var lga = result[0].entity.localGovernmentAreaName;
-    var state = result[0].entity.stateName;
+function buildRpResultSummary(results) {
+    var district = results[0].entity.entityName;
+    var lga = results[0].entity.localGovernmentAreaName;
+    var state = results[0].entity.stateName;
     var resultSummaryDiv = jQuery('#rlkp-result-summary');
-    resultSummaryDiv.append('<p>This is the postcode for <strong>' + district + '</strong> rural area in <strong>' + lga +  '</strong> LGA, <strong>' + state + '</strong> State.</p>');
-    resultSummaryDiv.append('<p><strong>' + district + '</strong> rural area is made up of the following villages.</p>');
+    resultSummaryDiv.append('<p>This postcode is for the following rural areas in <strong>' + lga +  '</strong> LGA, <strong>' + state + '</strong> State.</p>');
 
-    var col = jQuery('<div>').addClass('col-md-4')
-    var ul = jQuery('<ul>').addClass('list-group');
-    jQuery.each(result[0].subEntities, function(i, r) {
-        ul.append('<li class="list-group-item">'+r.entityName+'</li>');
-    });
-    ul.appendTo(col);
-    col.appendTo(resultSummaryDiv);
+    resultSummaryDiv.append(buildResultTable(results, 'RURAL'));
+
     resultSummaryDiv.removeClass( 'npc-hidden' );
 }
 
-function buildUpResultSummary(result) {
-    var area = result[0].entity.entityName;
-    var town = result[0].entity.urbanTownName;
-    var state = result[0].entity.stateName;
+function buildUpResultSummary(results) {
+    var area = results[0].entity.entityName;
+    var town = results[0].entity.urbanTownName;
+    var state = results[0].entity.stateName;
     var resultSummaryDiv = jQuery('#rlkp-result-summary');
-    resultSummaryDiv.append('<p>This is the postcode for <strong>' + area + '</strong> urban area in <strong>' + town +  '</strong> town, <strong>' + state + '</strong> State.</p>');
-    resultSummaryDiv.append('<p><strong>' + area + '</strong> urban area is made up of the following streets.</p>');
+    resultSummaryDiv.append('<p>This postcode is for the following urban areas in <strong>' + town +  '</strong> town, <strong>' + state + '</strong> State.</p>');
 
-    var col = jQuery('<div>').addClass('col-md-4')
-    var ul = jQuery('<ul>').addClass('list-group');
-    jQuery.each(result[0].subEntities, function(i, r) {
-        ul.append('<li class="list-group-item">'+r.entityName+'</li>');
-    });
-    ul.appendTo(col);
-    col.appendTo(resultSummaryDiv);
+    resultSummaryDiv.append(buildResultTable(results, 'URBAN'));
+    
     resultSummaryDiv.removeClass( 'npc-hidden' );
 }
 
@@ -107,8 +105,57 @@ function buildFpResultSummary(result) {
     var lga = result[0].entity.localGovernmentAreaName;
     var state = result[0].entity.stateName;
     var resultSummaryDiv = jQuery('#rlkp-result-summary');
-    resultSummaryDiv.append('<p>This is the postcode for <strong>' + facility + '</strong> facility in <strong>' + lga +  '</strong> LGA, <strong>' + state + '</strong> State.</p>');
+    resultSummaryDiv.append('<p>This postcode is for <strong>' + facility + '</strong> facility in <strong>' + lga +  '</strong> LGA, <strong>' + state + '</strong> State.</p>');
 
     resultSummaryDiv.removeClass( 'npc-hidden' );
 }
+
+function buildResultTable(results, type)
+{
+    var typeHeader = '<tr><th></th><th>Rural Area</th><th>Villages</th><th>LGA</th><th>State</th></tr>';
+    if (type === 'URBAN') {
+        typeHeader = '<tr><th></th><th>Urban Area</th><th>Streets</th><th>Urban Town</th><th>State</th></tr>';
+    }
+    var tableHeaderRow = jQuery('<thead></thead>');
+    tableHeaderRow.append(typeHeader);
+    var tableDiv = jQuery('<table  class="table"></table>');
+    tableDiv.append(tableHeaderRow);
+
+    jQuery.each(results, function(i, r) {
+        tableDiv.append(buildResultTableRows(r, type, i));
+    });
+
+    return tableDiv;
+}
+
+function buildResultTableRows(result, type, index)
+{
+    var entityName = result.entity.entityName;
+    var lgaOrTown = result.entity.localGovernmentAreaName;
+    if (type === 'URBAN') {
+        lgaOrTown = result.entity.urbanTownName;
+    }
+    var state = result.entity.stateName;
+    var tableBody = jQuery('<tbody class="rlkp-result-table-body"></tbody>');
+    tableBody.append('<tr data-toggle="collapse" data-target=".child'+index+'">' +
+    '<td><a class="npc-show-hide"><span id="show-icon"><i class="more-less glyphicon glyphicon-plus"></i></span></a></td>' +
+    '<td>' + entityName + '</td>' +
+    '<td>Expand To See</td>' +
+    '<td>' + lgaOrTown + '</td>' +
+    '<td>' + state + '</td>' +
+    '</tr>');
+
+    jQuery.each(result.subEntities, function(i, r) {
+        tableBody.append('<tr class="rlkp-result-table-row collapse child'+index+'">' +
+        '<td></td>' +
+        '<td></td>' +
+        '<td>'+r.entityName+'</td>' +
+        '<td>' + lgaOrTown + '</td>' +
+        '<td>' + state + '</td>' +
+        '</tr>');
+    });
+
+    return tableBody
+}
+
 
