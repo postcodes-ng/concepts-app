@@ -115,12 +115,12 @@ function makeReverseLookupRequest(spinnerId, responseHandler) {
     }
 }
 
-function buildReverseLookupResult(status, result) {
+function buildReverseLookupResult(status, results) {
     var resultDiv = jQuery('#rlkp-result');
     var errorDiv = jQuery('#rlkp-error');
     var successDiv = jQuery('#rlkp-success');
-    if (status === 'success') {
-        var type = result[0].postcodeType;
+    if (status === 'success' && results.length > 0) {
+        var type = results[0].postcodeType;
         successDiv.children('span').text(getSuccessMessage(type));
         errorDiv.addClass('npc-hidden');
         successDiv.removeClass('npc-hidden');
@@ -129,14 +129,14 @@ function buildReverseLookupResult(status, result) {
         resultSummaryDiv.empty();
 
         if (type === 'RURAL') {
-            buildRpResultSummary(result);
+            buildRpResultSummary(results);
         } else if (type === 'URBAN') {
-            buildUpResultSummary(result);
+            buildUpResultSummary(results);
         } else if (type === 'FACILITY') {
-            buildFpResultSummary(result);
+            buildFpResultSummary(results);
         }
     } else {
-        errorDiv.children('span').text(result);
+        errorDiv.children('span').text('No results found for this postcode');
         errorDiv.removeClass('npc-hidden');
         successDiv.addClass('npc-hidden');
     }
