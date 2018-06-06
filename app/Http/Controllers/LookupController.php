@@ -1,7 +1,6 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Services\PostcodeFinderService;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Illuminate\Support\Facades\Log;
@@ -9,12 +8,6 @@ use App\Services\LookupService;
 
 class LookupController extends Controller
 {
-    /**
-     *
-     * @var PostcodeFinderService
-     */
-    private $postcodeFinderService;
-
     /**
      *
      * @var LookupService
@@ -26,9 +19,8 @@ class LookupController extends Controller
      *
      * @return void
      */
-    public function __construct(PostcodeFinderService $postcodeFinderService, LookupService $lookupService)
+    public function __construct(LookupService $lookupService)
     {
-        $this->postcodeFinderService = $postcodeFinderService;
         $this->lookupService = $lookupService;
         $this->middleware('web');
         $this->middleware('ajax',
