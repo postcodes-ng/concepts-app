@@ -25,6 +25,11 @@ Route::get('/postcodeFinder', function() {
 Route::get('/postcodeReverseLookup', function() {
     return redirect('/search/postcode');
 });
+
+Route::get('/about', function () {
+    return view('about.about');
+})->name('about');
+
 Route::get('/lookup', 'LookupController@showPostcodeLookupPage')->name('lookup');
 Route::get('/api/lookup/states', 'LookupController@fetchStates');
 Route::get('/api/lookup/lgas', 'LookupController@fetchLocalGovernmentAreas');
