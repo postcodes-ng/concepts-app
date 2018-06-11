@@ -52,18 +52,18 @@ html, body {
     top: 18px;
 }
 
-#home {
+#npc-page {
     width: 100%;
     height: auto;
 }
 
-#home > #header {
+#npc-page > #header {
     background-image: url("/img/home_background.jpg");
     background-repeat: repeat-y;
     border-bottom: 5px $brand-warning solid;
 }
 
-#home > #header .header-title{
+#npc-page > #header .header-title{
     padding: 1em 0em 0em 0em;
     text-align: center;
     font-size: 400%;
@@ -71,7 +71,7 @@ html, body {
     font-weight: bold;
 }
 
-#home > #header .header-content{
+#npc-page > #header .header-content{
     padding: 3em 0em 3em 0em;
     text-align: center;
     font-size: 30px;
@@ -79,7 +79,7 @@ html, body {
 }
 
 @media all and ( max-width: 380px ) {
-    #home > #header .header-title{
+    #npc-page > #header .header-title{
         font-size: 350%;
     }
 }
@@ -243,60 +243,53 @@ a.npc-active-menu-item {
     padding: 0 20px;
 }
 
-.npc-section-wrapper.wrapper1 {
+.npc-section-wrapper.default-wrapper {
     background: #fff;
 }
 
-.npc-section-wrapper.wrapper2 {
+.npc-section-wrapper.alternate-wrapper {
     background: $brand-primary;
     color: white;
 }
 
-.npc-section-wrapper.wrapper3 {
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 3%,rgba(0,0,0,0.65) 98%,rgba(0,0,0,0.65) 100%),
-     url("/img/npc_map_section_bkgrd.png");
-    color: white;
-}
-
-.npc-section-wrapper.wrapper1,
- .npc-section-wrapper.wrapper2,
-  .npc-section-wrapper.wrapper3 {
+.npc-section-wrapper.default-wrapper,
+ .npc-section-wrapper.alternate-wrapper {
     padding-top: 3em;
     padding-bottom: 3em;
     text-align: center;
     font-size: 30px;
 }
 
-.npc-section-wrapper.wrapper1 .btn,
- .npc-section-wrapper.wrapper2 .btn,
- .npc-section-wrapper.wrapper3 .btn {
+.npc-section-wrapper.default-wrapper .btn,
+ .npc-section-wrapper.alternate-wrapper .btn {
     font-size: 25px;
 }
 
-.npc-section-wrapper.wrapper2 .btn {
-    font-size: 25px;
+.npc-section-wrapper.alternate-wrapper .btn {
     color: black;
 }
 
-.npc-section-wrapper.wrapper4 {
-    padding-top: 3em;
-    padding-bottom: 3em;
-    background: #fff;
-    text-align: left;
+.npc-text {
+    font-size: 18px !important;
+    text-align: left !important;
 }
 
-.npc-section-wrapper.wrapper1 h2,
- .npc-section-wrapper.wrapper2 h2,
- .npc-section-wrapper.wrapper3 h2 {
+.npc-section-wrapper.default-wrapper h2,
+ .npc-section-wrapper.alternate-wrapper h2 {
     font-size: 40px;
     font-weight: 700 !important;
 }
 
-.npc-section-wrapper.wrapper1 > a:hover,
- .npc-section-wrapper.wrapper2 > a:hover,
- .npc-section-wrapper.wrapper3 > a:hover {
+.npc-section-wrapper.default-wrapper > a:hover,
+ .npc-section-wrapper.alternate-wrapper > a:hover {
     text-decoration: none;
     cursor: pointer;
+}
+
+.npc-map-background {
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0) 3%,rgba(0,0,0,0.65) 98%,rgba(0,0,0,0.65) 100%),
+     url("/img/npc_map_section_bkgrd.png") !important;
+     color: white !important;
 }
 
 /**

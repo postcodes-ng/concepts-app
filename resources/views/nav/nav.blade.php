@@ -15,6 +15,8 @@
 
         <div class="collapse navbar-collapse" id="npc-collapsable-menu">
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{route('home')}}">Home</a></li>
+                <li><a href="{{route('about')}}">About</a></li>
                 <li><a href="{{route('lookup')}}">Postcode Lookup</a></li>
                 <li><a href="{{route('postcodeSearch')}}">Search By Postcode</a></li>
                 <li><a href="{{route('map')}}">Map</a></li>
