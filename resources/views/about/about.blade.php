@@ -80,7 +80,7 @@
                 <section class="row">
                     <div class="col-md-8 col-md-offset-2">
                             <h2>Our Mission</h2>
-                            <p>Make Nigerian postcodes recognized and used nation wide.</p>
+                            <p>Make Nigerian postcodes recognized and used nationwide.</p>
                     </div>
                 </section>
             </div>
