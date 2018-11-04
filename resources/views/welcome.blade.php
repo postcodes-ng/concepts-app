@@ -15,9 +15,10 @@
         <div id="npc-page">
             <div id="header">
                 @include('nav.nav')
+                <div class="">
                 <div class="container">
                     <div class="header-title">
-                        Nigerian Postcodes
+                        &nbsp;&nbsp;
                     </div>
                     <div  class="row">
                         <div class="col-md-8 col-md-offset-2">
@@ -27,14 +28,15 @@
                         </div>
                     </div>
                 </div>
+                </div>
             </div>
             <div class="npc-section-wrapper default-wrapper">
                 <section class="row">
                     <div class="col-md-8 col-md-offset-2">
-                            <h2>Postcode Lookup</h2>
-                            <p>Lookup Nigerian Urban, Rural, and Facility postcodes.</p>
+                            <h2>Postcode Directory</h2>
+                            <p>Select designated state from the State list and drill down to appropraite Town, Area, Street etc.</p>
                         <div>
-                            <a href="{{route('lookup')}}" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Lookup </a>
+                            <a href="{{route('directory')}}" class="btn btn-primary"><span class="glyphicon glyphicon-folder-open"></span> Directory </a>
                         </div>
                     </div>
                 </section>
@@ -42,10 +44,21 @@
             <div class="npc-section-wrapper alternate-wrapper">
                 <section class="row">
                     <div class="col-md-8 col-md-offset-2">
+                            <h2>Postcode Lookup</h2>
+                            <p>Lookup Nigerian Urban, Rural, and Facility postcodes.</p>
+                        <div>
+                            <a href="{{route('lookup')}}" class="btn btn-warning"><span class="glyphicon glyphicon-modal-window"></span> Lookup </a>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="npc-section-wrapper default-wrapper">
+                <section class="row">
+                    <div class="col-md-8 col-md-offset-2">
                             <h2>Search By Postcode</h2>
                             <p>Find the Area, or Streets, or Villages associated with a given Nigerian postcode.</p>
                         <div>
-                            <a href="{{route('postcodeSearch')}}" class="btn btn-warning"><span class="glyphicon glyphicon-search"></span> Search By Postcode </a>
+                            <a href="{{route('postcodeSearch')}}" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span> Search By Postcode </a>
                         </div>
                     </div>
                 </section>

@@ -61,6 +61,24 @@ class PostcodeApiWrapper
         return $response;
     }
 
+    public function getStatesDirectory($stateSlug = null)
+    {
+        $endpoint = 'directory/states';
+        $params = [];
+
+        if (!empty($stateSlug)) {
+            $params['stateSlug'] = $stateSlug;
+        }
+
+        $response = $this->sendRequest($endpoint, $params);
+
+        if (!array_key_exists('error', $response)) {
+            return $response['content'];
+        }
+
+        return $response;
+    }
+
     /**
      * Retrieves Nigerian LocalGovernmentArea/s for a State.
      *
@@ -76,6 +94,24 @@ class PostcodeApiWrapper
 
         if (!empty($lgaId)) {
             $params['lgaId'] = $lgaId;
+        }
+
+        $response = $this->sendRequest($endpoint, $params);
+
+        if (!array_key_exists('error', $response)) {
+            return $response['content'];
+        }
+
+        return $response;
+    }
+
+    public function getLocalGovernmentAreasDirectory($stateSlug, $lgaSlug = null)
+    {
+        $endpoint = 'directory/states/' . $stateSlug . '/lgas';
+        $params = [];
+
+        if (!empty($lgaSlug)) {
+            $params['lgaSlug'] = $lgaSlug;
         }
 
         $response = $this->sendRequest($endpoint, $params);
@@ -114,6 +150,20 @@ class PostcodeApiWrapper
         return $response;
     }
 
+    public function getFacilitiesDirectory($stateSlug, $lgaSlug)
+    {
+        $endpoint = 'directory/states/' . $stateSlug . '/lgas/' . $lgaSlug . '/facilities';
+        $params = [];
+
+        $response = $this->sendRequest($endpoint, $params);
+
+        if (!array_key_exists('error', $response)) {
+            return $response['content'];
+        }
+
+        return $response;
+    }
+
     /**
      * Retrieves the Rural Areas in a given LGA.
      *
@@ -130,6 +180,24 @@ class PostcodeApiWrapper
 
         if (!empty($ruralAreaId)) {
             $params['ruralAreaId'] = $ruralAreaId;
+        }
+
+        $response = $this->sendRequest($endpoint, $params);
+
+        if (!array_key_exists('error', $response)) {
+            return $response['content'];
+        }
+
+        return $response;
+    }
+
+    public function getRuralAreasDirectory($stateSlug, $lgaSlug, $ruralAreaSlug = null)
+    {
+        $endpoint = 'directory/states/' . $stateSlug . '/lgas/' . $lgaSlug . '/ruralAreas';
+        $params = [];
+
+        if (!empty($ruralAreaSlug)) {
+            $params['ruralAreaSlug'] = $ruralAreaSlug;
         }
 
         $response = $this->sendRequest($endpoint, $params);
@@ -168,6 +236,20 @@ class PostcodeApiWrapper
         return $response;
     }
 
+    public function getVillagesDirectory($stateSlug, $lgaSlug, $ruralAreaSlug)
+    {
+        $endpoint = 'directory/states/' . $stateSlug . '/lgas/' . $lgaSlug . '/ruralAreas/' . $ruralAreaSlug . '/villages';
+        $params = [];
+
+        $response = $this->sendRequest($endpoint, $params);
+
+        if (!array_key_exists('error', $response)) {
+            return $response['content'];
+        }
+
+        return $response;
+    }
+
     /**
      * Retrieves the Urban Towns in a given State.
      *
@@ -184,6 +266,24 @@ class PostcodeApiWrapper
 
         if (!empty($urbanTownId)) {
             $params['urbanTownId'] = $urbanTownId;
+        }
+
+        $response = $this->sendRequest($endpoint, $params);
+
+        if (!array_key_exists('error', $response)) {
+            return $response['content'];
+        }
+
+        return $response;
+    }
+
+    public function getUrbanTownsDirectory($stateSlug, $urbanTownSlug = null)
+    {
+        $endpoint = 'directory/states/'. $stateSlug . '/urbanTowns';
+        $params = [];
+
+        if (!empty($urbanTownSlug)) {
+            $params['urbanTownSlug'] = $urbanTownSlug;
         }
 
         $response = $this->sendRequest($endpoint, $params);
@@ -222,6 +322,24 @@ class PostcodeApiWrapper
         return $response;
     }
 
+    public function getUrbanAreasDirectory($stateSlug, $urbanTownSlug, $urbanAreaSlug = null)
+    {
+        $endpoint = 'directory/states/'. $stateSlug . '/urbanTowns/' . $urbanTownSlug . '/urbanAreas';
+        $params = [];
+
+        if (!empty($urbanAreaSlug)) {
+            $params['urbanAreaSlug'] = $urbanAreaSlug;
+        }
+
+        $response = $this->sendRequest($endpoint, $params);
+
+        if (!array_key_exists('error', $response)) {
+            return $response['content'];
+        }
+
+        return $response;
+    }
+
     /**
      * Retrieves the Urban Streets in a given Urban Area.
      *
@@ -240,6 +358,20 @@ class PostcodeApiWrapper
             $params['urbanStreetId'] = $urbanStreetId;
         }
 
+        $response = $this->sendRequest($endpoint, $params);
+
+        if (!array_key_exists('error', $response)) {
+            return $response['content'];
+        }
+
+        return $response;
+    }
+
+    public function getStreetsDirectory($stateSlug, $urbanTownSlug, $urbanAreaSlug)
+    {
+        $endpoint = 'directory/states/'. $stateSlug . '/urbanTowns/' . $urbanTownSlug . '/urbanAreas/' . $urbanAreaSlug . '/streets';
+        $params = [];
+        
         $response = $this->sendRequest($endpoint, $params);
 
         if (!array_key_exists('error', $response)) {
