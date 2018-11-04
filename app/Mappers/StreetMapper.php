@@ -1,7 +1,7 @@
 <?php
 namespace App\Mappers;
 
-use App\Models\Geography\street;
+use App\Models\Geography\Street;
 
 /**
  *
