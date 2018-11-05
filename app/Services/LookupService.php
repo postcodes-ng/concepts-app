@@ -3,6 +3,14 @@ namespace App\Services;
 
 use App\Utilities\PostcodeApiWrapper;
 use App\Utilities\W3WApiWrapper;
+use App\Mappers\FacilityMapper;
+use App\Mappers\LGAMapper;
+use App\Mappers\RuralAreaMapper;
+use App\Mappers\StreetMapper;
+use App\Mappers\StateMapper;
+use App\Mappers\UrbanAreaMapper;
+use App\Mappers\UrbanTownMapper;
+use App\Mappers\VillageMapper;
 
 class LookupService
 {
@@ -16,18 +24,76 @@ class LookupService
      */
     private $w3wApiWrapper;
 
-    public function __construct(PostcodeApiWrapper $postcodeApiWrapper, W3WApiWrapper $w3wApiWrapper)
+    /**
+     * @var FacilityMapper
+     */
+    private $facilityMapper;
+
+    /**
+     * @var LGAMapper
+     */
+    private $lgaMapper;
+
+    /**
+     * @var RuralAreaMapper
+     */
+    private $ruralAreaMapper;
+
+    /**
+     * @var StreetMapper
+     */
+    private $streetMapper;
+
+    /**
+     * @var StateMapper
+     */
+    private $stateMapper;
+
+    /**
+     * @var UrbanAreaMapper
+     */
+    private $urbanAreaMapper;
+
+    /**
+     * @var UrbanTownMapper
+     */
+    private $urbanTownMapper;
+
+    /**
+     * @var VillageMapper
+     */
+    private $villageMapper;
+
+    public function __construct(
+        PostcodeApiWrapper $postcodeApiWrapper,
+        W3WApiWrapper $w3wApiWrapper,
+        FacilityMapper $facilityMapper,
+        LGAMapper $lgaMapper,
+        RuralAreaMapper $ruralAreaMapper,
+        StateMapper $stateMapper,
+        StreetMapper $streetMapper,
+        UrbanAreaMapper $urbanAreaMapper,
+        UrbanTownMapper $urbanTownMapper,
+        VillageMapper $villageMapper)
     {
         $this->postcodeApiWrapper = $postcodeApiWrapper;
 
         $this->w3wApiWrapper = $w3wApiWrapper;
+        $this->facilityMapper = $facilityMapper;
+        $this->lgaMapper = $lgaMapper;
+        $this->ruralAreaMapper = $ruralAreaMapper;
+        $this->stateMapper = $stateMapper;
+        $this->streetMapper = $streetMapper;
+        $this->urbanAreaMapper = $urbanAreaMapper;
+        $this->urbanTownMapper = $urbanTownMapper;
+        $this->villageMapper = $villageMapper;
     }
 
     public function getStates()
     {
         $emptyResponse = [];
 
-        $statesResponse = $this->postcodeApiWrapper->getStates();
+        $statesResponse = $this->postcodeApiWrapper->getStatesDirectory();
 
         if (array_key_exists('error', $statesResponse)) {
             return $emptyResponse;

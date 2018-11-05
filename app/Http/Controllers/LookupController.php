@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Illuminate\Support\Facades\Log;
 use App\Services\LookupService;
+use App\Services\DirectoryService;
 
 class LookupController extends Controller
 {
