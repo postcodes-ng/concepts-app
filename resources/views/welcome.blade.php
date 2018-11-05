@@ -15,7 +15,6 @@
         <div id="npc-page">
             <div id="header">
                 @include('nav.nav')
-                <div class="">
                 <div class="container">
                     <div class="header-title">
                         &nbsp;&nbsp;
@@ -27,7 +26,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
                 </div>
             </div>
             <div class="npc-section-wrapper default-wrapper">
