@@ -20,9 +20,10 @@ class LookupController extends Controller
      *
      * @return void
      */
-    public function __construct(LookupService $lookupService)
+    public function __construct(LookupService $lookupService, DirectoryService $directoryService)
     {
         $this->lookupService = $lookupService;
+        $this->directoryService = $directoryService;
         $this->middleware('web');
         $this->middleware('ajax',
                 [
@@ -55,7 +56,7 @@ class LookupController extends Controller
      * @return array
      */
     public function fetchStates() {
-        $states = $this->lookupService->getStates();
+        $states = $this->directoryService->getStates();
         return $states;
     }
 
@@ -66,8 +67,8 @@ class LookupController extends Controller
      * @return array
      */
     public function fetchLocalGovernmentAreas(Request $request) {
-        $stateCode = $request->get('stateCode');
-        $localGovtAreas = $this->lookupService->getLocalGovernmentAreasByState($stateCode);
+        $stateSlug = $request->get('stateSlug');
+        $localGovtAreas = $this->directoryService->getLocalGovernmentAreas($stateSlug);
         return $localGovtAreas;
     }
 
@@ -78,9 +79,10 @@ class LookupController extends Controller
      * @return array
      */
     public function fetchRuralAreas(Request $request) {
-        $lgaId = $request->get('lgaId');
-        $ruralAreaId = $request->get('ruralAreaId');
-        $ruralAreas = $this->lookupService->getRuralAreas($lgaId, $ruralAreaId);
+        $stateSlug = $request->get('stateSlug');
+        $lgaSlug = $request->get('lgaSlug');
+        $ruralAreaSlug = $request->get('ruralAreaSlug');
+        $ruralAreas = $this->directoryService->getRuralAreas($stateSlug, $lgaSlug, $ruralAreaSlug);
         return  $ruralAreas;
     }
 
@@ -90,9 +92,11 @@ class LookupController extends Controller
      * @return array
      */
     public function fetchRuralVillages(Request $request) {
-        $ruralAreaId = $request->get('ruralAreaId');
-        $ruralVillageId = $request->get('ruralVillageId');
-        $ruralVillages = $this->lookupService->getRuralVillages($ruralAreaId, $ruralVillageId);
+        $stateSlug = $request->get('stateSlug');
+        $lgaSlug = $request->get('lgaSlug');
+        $ruralAreaSlug = $request->get('ruralAreaSlug');
+        //$ruralVillageId = $request->get('ruralVillageId');
+        $ruralVillages = $this->directoryService->getVillages($stateSlug, $lgaSlug, $ruralAreaSlug);
         return  $ruralVillages;
     }
 
@@ -103,9 +107,9 @@ class LookupController extends Controller
      * @return array
      */
     public function fetchUrbanTowns(Request $request) {
-        $stateCode = $request->get('stateCode');
-        $urbanTownId = $request->get('urbanTownId');
-        $urbanTowns = $this->lookupService->getUrbanTowns($stateCode, $urbanTownId);
+        $stateSlug = $request->get('stateSlug');
+        $urbanTownSlug = $request->get('urbanTownSlug');
+        $urbanTowns = $this->directoryService->getUrbanTowns($stateSlug, $urbanTownSlug);
         return  $urbanTowns;
     }
 
@@ -116,9 +120,10 @@ class LookupController extends Controller
      * @return array
      */
     public function fetchUrbanAreas(Request $request) {
-        $urbanTownId = $request->get('urbanTownId');
-        $urbanAreaId = $request->get('urbanAreaId');
-        $urbanAreas = $this->lookupService->getUrbanAreas($urbanTownId, $urbanAreaId);
+        $stateSlug = $request->get('stateSlug');
+        $urbanTownSlug = $request->get('urbanTownSlug');
+        $urbanAreaSlug = $request->get('urbanAreaSlug');
+        $urbanAreas = $this->directoryService->getUrbanAreas($stateSlug, $urbanTownSlug, $urbanAreaSlug);
         return  $urbanAreas;
     }
 
@@ -129,9 +134,11 @@ class LookupController extends Controller
      * @return array
      */
     public function fetchUrbanStreets(Request $request) {
-        $urbanAreaId = $request->get('urbanAreaId');
-        $urbanStreetId = $request->get('urbanStreetId');
-        $urbanStreets = $this->lookupService->getUrbanStreets($urbanAreaId, $urbanStreetId);
+        $stateSlug = $request->get('stateSlug');
+        $urbanTownSlug = $request->get('urbanTownSlug');
+        $urbanAreaSlug = $request->get('urbanAreaSlug');
+        //$urbanStreetId = $request->get('urbanStreetId');
+        $urbanStreets = $this->directoryService->getStreets($stateSlug, $urbanTownSlug, $urbanAreaSlug);
         return  $urbanStreets;
     }
 
@@ -142,9 +149,10 @@ class LookupController extends Controller
      * @return array
      */
     public function fetchFacilities(Request $request) {
-        $lgaId = $request->get('lgaId');
-        $facilityId = $request->get('facilityId');
-        $facilities = $this->lookupService->getFacilities($lgaId, $facilityId);
+        $stateSlug = $request->get('stateSlug');
+        $lgaSlug = $request->get('lgaSlug');
+        //$facilityId = $request->get('facilityId');
+        $facilities = $this->directoryService->getFacilities($stateSlug, $lgaSlug);
         return  $facilities;
     }
 }
