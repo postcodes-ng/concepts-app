@@ -38,7 +38,7 @@ makeRequest = function (endpoint, method, data, customResponseHandler = null, sp
     	      if (httpRequest.status === 200) {
     	    	  
                   response = JSON.parse(httpRequest.responseText);
-                  console.log(response);
+                  //console.log(response);
     	    	  if (customResponseHandler !== null) {
     	    		  customResponseHandler('success', response.response);
     	    	  }
