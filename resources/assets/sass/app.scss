@@ -59,7 +59,9 @@ html, body {
 
 #npc-page > #header {
     background-image: url("/img/postcodes_ng_bkgrnd_image1.png");
-    background-repeat: repeat-y;
+    background-repeat:no-repeat;
+    background-size:contain !important;
+    background-position:center;
     border-bottom: 5px $brand-warning solid;
     background-color: rgba(0,0,0,0.5);
 }
