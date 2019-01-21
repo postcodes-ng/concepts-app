@@ -17,9 +17,15 @@
     "axios": "^0.16.2",
     "bootstrap-sass": "^3.3.7",
     "cross-env": "^5.0.1",
+    "dotenv": "^6.1.0",
+    "inline-environment-variables-webpack-plugin": "^1.2.1",
     "jquery": "^3.1.1",
-    "laravel-mix": "^1.0",
+    "laravel-mix": "^4.0",
     "lodash": "^4.17.4",
-    "vue": "^2.1.10"
+    "resolve-url-loader": "2.3.1",
+    "sass": "^1.16.1",
+    "sass-loader": "7.*",
+    "vue": "^2.1.10",
+    "vue-template-compiler": "^2.5.22"
   }
 }

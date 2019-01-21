@@ -7,6 +7,7 @@
 @section('body')
 
 @include('nav.nav')
+
 <div itemscope itemtype="http://schema.org/WebSite">
     <link itemprop="url" href="http://www.postcodes.ng/lookup"/>
     <meta itemprop="name" content="Nigeria Postcode Lookup"/>

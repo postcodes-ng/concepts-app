@@ -1,4 +1,8 @@
 let mix = require('laravel-mix');
+const InlineEnviromentVariablesPlugin = require('inline-environment-variables-webpack-plugin');
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').load();
+  }
 
 /*
  |--------------------------------------------------------------------------
@@ -19,3 +23,18 @@ mix.js('resources/assets/js/app.js', 'public/js')
    .js('resources/assets/js/npc-postcodeReverse-page-functions.js', 'public/js')
    .js('resources/assets/js/npc-google-map-functions.js', 'public/js')
    .sass('resources/assets/sass/app.scss', 'public/css')
+
+if (mix.inProduction()) {
+    mix.version();
+}
+
+mix.webpackConfig({
+    plugins: [
+        new InlineEnviromentVariablesPlugin([
+            'JWT_SECRET',
+            'JWT_ID',
+            'JWT_ISSUER',
+            'JWT_AUDIENCE'
+        ])
+    ]
+});
