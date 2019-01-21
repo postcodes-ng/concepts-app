@@ -2,11 +2,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Lcobucci\JWT\ValidationData;
-use Lcobucci\JWT\Parser;
-use Lcobucci\JWT\Signer\Hmac\Sha256;
 use App\Http\Helpers\AjaxHelper;
-use Illuminate\Support\Facades\Log;
 
 class Ajax
 {
@@ -33,11 +29,11 @@ class Ajax
 
         if ($request->path() == 'api/token') { 
             if (!AjaxHelper::validateJWT($bearerToken, 'web')) {
-                abort(403);
+                abort(401);
             }
         } else {
             if (!AjaxHelper::validateJWT($bearerToken, 'api')) {
-                abort(403);
+                abort(401);
             }
         }
 

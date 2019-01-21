@@ -89,10 +89,10 @@ function makePreRequest(primaryHttpRequest, data) {
     	    	  const apiToken = response.response.apiToken;
                   primaryHttpRequest.setRequestHeader('Authorization', 'Bearer ' + apiToken);
                   primaryHttpRequest.send(data);
-    	      } else if (preHttpRequest.status === 403) {
+    	      } else if (preHttpRequest.status === 401) {
                 alert('Your Session has expired. Please refresh your window.')
               } else {
-                console.error('Pre-request failed.');
+                console.error('Pre-request failed with status code: ' + preHttpRequest.status);
     	      }
     	    }
     };

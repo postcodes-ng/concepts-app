@@ -26,8 +26,6 @@ class TokenController extends Controller
     public function getToken() {
         $response = [];
         $token = AjaxHelper::generateAPIJWT();
-        Log::info('TOKEN: ' . $token);
-
         $response['apiToken'] = strval($token);
         return $response;
     }
