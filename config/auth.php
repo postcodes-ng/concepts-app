@@ -99,4 +99,9 @@ return [
         ],
     ],
 
+    'jwt_secret' => env('JWT_SECRET', null),
+    'jwt_id' => env('JWT_ID', null),
+    'jwt_issuer' => env('JWT_ISSUER', 'http://www.postcodes.ng'),
+    'jwt_audience' => env('JWT_AUDIENCE', 'http://www.postcodes.ng/api'),
+
 ];

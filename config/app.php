@@ -12,7 +12,7 @@ return [
     | any other location as required by the application or its packages.
     */
 
-    'name' => env('APP_NAME', 'Nigerian Postcode Finder'),
+    'name' => env('APP_NAME', 'Postcodes.NG'),
 
     /*
     |--------------------------------------------------------------------------
@@ -225,6 +225,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'AjaxHelper' => App\Http\Helpers\AjaxHelper::class,
 
     ],
 

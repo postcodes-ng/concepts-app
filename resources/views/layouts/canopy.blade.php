@@ -16,16 +16,17 @@
 <!-- <link rel="alternate" href="http://nigeriapostcodes.naijaz.com" hreflang="en-us" /> -->
 
 <!-- Styles -->
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
 <!-- Scripts -->
 <script>
 window.Laravel = {!! json_encode([
         'csrfToken' => csrf_token(),
 ]) !!};
+window.Laravel.webJWT = "{{ AjaxHelper::generateWebJWT() }}";
 </script>
-<script src="{{ asset('js/npc-polyfills.js') }}"></script>
-<script src="{{ asset('js/npc-declarations.js') }}"></script>
+<script src="{{ mix('js/npc-polyfills.js') }}"></script>
+<script src="{{ mix('js/npc-declarations.js') }}"></script>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -42,17 +43,15 @@ window.Laravel = {!! json_encode([
 <div id="app">
 
 @yield('body')
-<!-- spinner -->
-<!-- <div id="mdl-spinner-global" class="mdl-spinner mdl-spinner--single-color mdl-js-spinner global-spinner nsh-hide"></div> -->
 </div>
 <div class="npc-footer-wrapper">
 @include('footer.footer')
 </div>
 
 <!-- Scripts -->
-<script src="{{ asset('js/npc-common-functions.js') }}"></script>
-<script src="{{ asset('js/app.js') }}"></script>
-<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+<script src="{{ mix('js/npc-common-functions.js') }}"></script>
+<script src="{{ mix('js/app.js') }}"></script>
+<!--<script src="https://code.getmdl.io/1.3.0/material.min.js"></script>-->
 @stack('scripts')
 </body>
 </html>

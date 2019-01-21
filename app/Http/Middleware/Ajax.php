@@ -2,6 +2,11 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Lcobucci\JWT\ValidationData;
+use Lcobucci\JWT\Parser;
+use Lcobucci\JWT\Signer\Hmac\Sha256;
+use App\Http\Helpers\AjaxHelper;
+use Illuminate\Support\Facades\Log;
 
 class Ajax
 {
@@ -20,26 +25,24 @@ class Ajax
             abort(403);
         }
 
+        $bearerToken = $request->bearerToken();
+
+        if ($bearerToken == null) {
+            abort(403);
+        }
+
+        if ($request->path() == 'api/token') { 
+            if (!AjaxHelper::validateJWT($bearerToken, 'web')) {
+                abort(403);
+            }
+        } else {
+            if (!AjaxHelper::validateJWT($bearerToken, 'api')) {
+                abort(403);
+            }
+        }
+
         $response = $next($request);
 
-        $originalContent = $response->getOriginalContent();
-
-        if (is_array($originalContent) && array_key_exists('error', $originalContent)) {
-            return response()->json(
-                    [
-                            'status' => 'error',
-                            'message' => $originalContent ['error'],
-                            'response' => NULL
-                    ], $response->status() === 200 ? 400 : $response->status());
-        } else if (is_array($originalContent)) {
-            return response()->json(
-                    [
-                            'status' => 'success',
-                            'message' => NULL,
-                            'response' => $originalContent
-                    ], 200);
-        } else {
-            return $response;
-        }
+        return AjaxHelper::formatAjaxResponse($response);
     }
 }

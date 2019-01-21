@@ -49,7 +49,7 @@ makeRequest = function (endpoint, method, data, customResponseHandler = null, sp
     	    		  customResponseHandler('error', response.message);
     	    	  }
     	      }
-    	      if (spinnerId !== null) {
+    	      if (spinnerId) {
     	    	  stopSpinner(spinnerId);
     	      }
     	      
@@ -59,6 +59,7 @@ makeRequest = function (endpoint, method, data, customResponseHandler = null, sp
     httpRequest.open(method, buildUrl(endpoint));
     httpRequest.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
     httpRequest.setRequestHeader('X-CSRF-TOKEN', window.Laravel.csrfToken);
+
     if (headers !== null) {
     	Object.keys(headers).forEach(function(key) {
         	httpRequest.setRequestHeader(key, headers[key]);
@@ -68,7 +69,39 @@ makeRequest = function (endpoint, method, data, customResponseHandler = null, sp
     if (method === 'POST' && contentType !== false) {
     	httpRequest.setRequestHeader('Content-Type', contentType);
     }
-    httpRequest.send(data);
+    makePreRequest(httpRequest, data);
+}
+
+function makePreRequest(primaryHttpRequest, data) {
+    preHttpRequest = new XMLHttpRequest();
+
+    if (!preHttpRequest) {
+      console.error('Giving up :( Cannot create an XMLHTTP instance for pre request');
+      return false;
+    }
+
+    preHttpRequest.onreadystatechange = function() {
+    	if (preHttpRequest.readyState === XMLHttpRequest.DONE) {
+    	      if (preHttpRequest.status === 200) {
+    	    	  
+                  response = JSON.parse(preHttpRequest.responseText);
+                  //console.log(response);
+    	    	  const apiToken = response.response.apiToken;
+                  primaryHttpRequest.setRequestHeader('Authorization', 'Bearer ' + apiToken);
+                  primaryHttpRequest.send(data);
+    	      } else if (preHttpRequest.status === 403) {
+                alert('Your Session has expired. Please refresh your window.')
+              } else {
+                console.error('Pre-request failed.');
+    	      }
+    	    }
+    };
+
+    preHttpRequest.open('GET', buildUrl('/api/token'));
+
+    preHttpRequest.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+    preHttpRequest.setRequestHeader('Authorization', 'Bearer ' + window.Laravel.webJWT);
+    preHttpRequest.send();
 }
 
 fade = function (element, interval) {

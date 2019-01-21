@@ -32,6 +32,18 @@
         },
         "W3W_API_KEY": {
             "required": true
+        },
+        "JWT_SECRET": {
+            "required": true
+        },
+        "JWT_ID": {
+            "required": true
+        },
+        "JWT_ISSUER": {
+            "required": true
+        },
+        "JWT_AUDIENCE": {
+            "required": true
         }
 	},
 	"formation": {

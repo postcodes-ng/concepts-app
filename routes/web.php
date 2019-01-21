@@ -59,3 +59,5 @@ Route::get('/directory/states/{stateSlug}/urbanTowns', 'DirectoryController@fetc
 Route::get('/directory/states/{stateSlug}/urbanTowns/{urbanTownSlug}/urbanAreas', 'DirectoryController@fetchUrbanAreas')->name('urbanAreasDirectory');
 Route::get('/directory/states/{stateSlug}/urbanTowns/{urbanTownSlug}/urbanAreas/{urbanAreaSlug}/streets', 'DirectoryController@fetchStreets')->name('streetsDirectory');
 
+Route::get('/api/token', 'Auth\TokenController@getToken');
+
