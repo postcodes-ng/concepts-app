@@ -40,10 +40,10 @@
             "required": true
         },
         "JWT_ISSUER": {
-            "required": true
+            "required": false
         },
         "JWT_AUDIENCE": {
-            "required": true
+            "required": false
         }
 	},
 	"formation": {
