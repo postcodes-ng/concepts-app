@@ -15,14 +15,14 @@ if (process.env.NODE_ENV !== 'production') {
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .js('resources/assets/js/npc-polyfills.js', 'public/js')
-   .js('resources/assets/js/npc-declarations.js', 'public/js')
-   .js('resources/assets/js/npc-common-functions.js', 'public/js')
-   .js('resources/assets/js/npc-postcodeFinder-page-functions.js', 'public/js')
-   .js('resources/assets/js/npc-postcodeReverse-page-functions.js', 'public/js')
-   .js('resources/assets/js/npc-google-map-functions.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css')
+mix.js('resources/js/app.js', 'public/js')
+   .js('resources/js/npc-polyfills.js', 'public/js')
+   .js('resources/js/npc-declarations.js', 'public/js')
+   .js('resources/js/npc-common-functions.js', 'public/js')
+   .js('resources/js/npc-postcodeFinder-page-functions.js', 'public/js')
+   .js('resources/js/npc-postcodeReverse-page-functions.js', 'public/js')
+   .js('resources/js/npc-google-map-functions.js', 'public/js')
+    .sass('resources/sass/app.scss', 'public/css')
 
 if (mix.inProduction()) {
     mix.version();
