@@ -6,6 +6,7 @@ use Lcobucci\JWT\ValidationData;
 use Lcobucci\JWT\Parser;
 use Lcobucci\JWT\Signer\Hmac\Sha256;
 use Lcobucci\JWT\Builder;
+use Illuminate\Support\Facades\Log;
 
 class AjaxHelper {
     public static function generateWebJWT() {
@@ -47,10 +48,11 @@ class AjaxHelper {
         $originalContent = $response->getOriginalContent();
 
         if (is_array($originalContent) && array_key_exists('error', $originalContent)) {
+            $message = $response->status() != 200 ? 'An unexpected error occurred' : $originalContent ['error'];
             return response()->json(
                     [
                             'status' => 'error',
-                            'message' => $originalContent ['error'],
+                            'message' => $message,
                             'response' => NULL
                     ], $response->status() === 200 ? 400 : $response->status());
         } else if (is_array($originalContent)) {

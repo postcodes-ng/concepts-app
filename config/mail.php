@@ -25,11 +25,11 @@ return [
     |
     | Here you may provide the host address of the SMTP server used by your
     | applications. A default option is provided that is compatible with
-    | the Mailgun mail service which will provide reliable deliveries.
+    | the Mailtrap mail service.
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', 'smtp.mailtrap.io'),
 
     /*
     |--------------------------------------------------------------------------
@@ -38,11 +38,11 @@ return [
     |
     | This is the SMTP port used by your application to deliver e-mails to
     | users of the application. Like the host we have set this value to
-    | stay compatible with the Mailgun e-mail application by default.
+    | stay compatible with the Mailtrap e-mail application by default.
     |
     */
 
-    'port' => env('MAIL_PORT', 587),
+    'port' => env('MAIL_PORT', 2525),
 
     /*
     |--------------------------------------------------------------------------
@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS', 'no-reply@postcodes.ng'),
+        'name' => env('MAIL_FROM_NAME', 'Postcodes dot NG'),
     ],
 
     /*
@@ -119,5 +119,19 @@ return [
             resource_path('views/vendor/mail'),
         ],
     ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Contact Form "To" Address
+    |--------------------------------------------------------------------------
+    |
+    | You may wish for all contact form messages to be sent to
+    | the same address. Here, you may specify an address that is
+    | used globally for all contact form e-mails that are sent by your application.
+    |
+    */
+
+    'contact_form_to_address' => env('CONTACT_FORM_MAIL_TO_ADDRESS', 'info@postcodes.ng'),
+
 
 ];

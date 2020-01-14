@@ -38,4 +38,6 @@ The project can be setup using a local development server or Laravel Homestead V
 * Copy this and add this to your hosts file ```192.168.10.13   concepts-app ```
 * Replace Line 10, in the homestead.yaml file, with your path to the project.
 * Run ```vagrant up```. This creates the VM for the project if run the first time
+* Run ```npm install```
+* Run ```npm run watch-poll```
 * Once it's up, browse to ```http://concepts-app/```

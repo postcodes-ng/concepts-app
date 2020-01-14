@@ -44,7 +44,34 @@
         },
         "JWT_AUDIENCE": {
             "required": false
-        }
+        },
+        "MAIL_DRIVER": {
+          "required": false
+        },
+        "MAIL_HOST": {
+          "required": false
+        },
+        "MAIL_PORT": {
+          "required": false
+        },
+        "MAIL_USERNAME": {
+          "required": true
+        },
+        "MAIL_PASSWORD": {
+          "required": true
+        },
+        "MAIL_ENCRYPTION": {
+          "required": false
+        },
+        "MAIL_FROM_ADDRESS": {
+          "required": false
+        },
+        "MAIL_FROM_NAME": {
+          "required": false
+        },
+        "CONTACT_FORM_MAIL_TO_ADDRESS": {
+          "required": false
+        },
 	},
 	"formation": {
 		
