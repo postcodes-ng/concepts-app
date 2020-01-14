@@ -1,5 +1,5 @@
 /**
- * Below are common functions for the NPC Concepts App
+ * Below are common functions for the Postcodes.NG Site
  */
 
 startGlobalSpinner = function () {
@@ -38,7 +38,6 @@ makeRequest = function (endpoint, method, data, customResponseHandler = null, sp
     	      if (httpRequest.status === 200) {
     	    	  
                   response = JSON.parse(httpRequest.responseText);
-                  //console.log(response);
     	    	  if (customResponseHandler !== null) {
     	    		  customResponseHandler('success', response.response);
     	    	  }
@@ -85,7 +84,6 @@ function makePreRequest(primaryHttpRequest, data) {
     	      if (preHttpRequest.status === 200) {
     	    	  
                   response = JSON.parse(preHttpRequest.responseText);
-                  //console.log(response);
     	    	  const apiToken = response.response.apiToken;
                   primaryHttpRequest.setRequestHeader('Authorization', 'Bearer ' + apiToken);
                   primaryHttpRequest.send(data);
