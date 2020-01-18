@@ -241,9 +241,21 @@ a.up-street-menu-item {
     background-color: #f5f5f5;
 }
 
-.container .text-muted {
-    margin: 20px 0;
-    padding-right: 20px;
+.npc-footer .npc-footer-box {
+  margin: 20px 0;
+  padding-right: 20px;
+
+}
+
+.npc-footer .npc-footer-box > li {
+  list-style: none;
+
+}
+
+a.npc-footer-menu {
+  font-size: small !important;
+  color: black !important;
+  font-weight: 200;
 }
 
 a.npc-active-menu-item {
@@ -329,3 +341,6 @@ a.npc-active-menu-item {
     padding-top: 15px;
 }
 
+/**
+* End W3W Map
+ */

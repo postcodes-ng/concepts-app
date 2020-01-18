@@ -18,11 +18,6 @@ class TokenController extends Controller
         $this->middleware('ajax');
     }
 
-    /**
-     * Fetches all the states.
-     *
-     * @return array
-     */
     public function getToken() {
         $response = [];
         $token = AjaxHelper::generateAPIJWT();

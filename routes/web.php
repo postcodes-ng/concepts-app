@@ -30,6 +30,11 @@ Route::get('/about', function () {
     return view('about.about');
 })->name('about');
 
+Route::get('/contact', function () {
+    return view('contact.contact');
+})->name('contact');
+Route::post('/api/contact/send', 'MessageController@sendContactMessage');
+
 Route::get('/lookup', 'LookupController@showPostcodeLookupPage')->name('lookup');
 Route::get('/api/lookup/states', 'LookupController@fetchStates');
 Route::get('/api/lookup/lgas', 'LookupController@fetchLocalGovernmentAreas');
