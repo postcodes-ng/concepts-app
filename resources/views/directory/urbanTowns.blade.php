@@ -18,7 +18,8 @@
         <section class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h2>Urban Towns in {{ $state }} state.</h2>
-                <table class="table">
+                <div class="npc-overflow">
+                    <table class="table">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -34,6 +35,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                </div>
             </div>
         </section>
     </div>
