@@ -144,6 +144,10 @@ html, body {
     float: right;
 }
 
+.npc-overflow {
+  overflow-x:auto;
+}
+
 .npc-spinner, .npc-spinner-medium, .npc-spinner-small {
   border-color: #f3f3f3;
   border-style: solid;

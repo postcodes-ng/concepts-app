@@ -13,7 +13,8 @@
         <section class="row">
             <div class="col-md-8 col-md-offset-2">
                 <h2>Nigerian states and the Federal Capital Territory</h2>
-                <table class="table">
+                <div class="npc-overflow">
+                    <table class="table">
                     <thead>
                         <tr>
                             <th>Name</th>
@@ -37,6 +38,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                </div>
             </div>
         </section>
     </div>
