@@ -71,7 +71,7 @@
         },
         "CONTACT_FORM_MAIL_TO_ADDRESS": {
           "required": false
-        },
+        }
 	},
 	"formation": {
 		
