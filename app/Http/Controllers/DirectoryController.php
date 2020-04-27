@@ -26,6 +26,14 @@ class DirectoryController extends Controller {
     }
 
     /**
+     * View directory page.
+     *
+     */
+    public function directory() {
+        return redirect('/directory/states');
+    }
+
+    /**
      * Fetches all the states.
      *
      * @return array
