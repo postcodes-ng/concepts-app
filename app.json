@@ -16,7 +16,7 @@
             "required": true
         },
         "APP_URL": {
-            "required": false
+            "required": true
         },
         "POSTCODE_API_BASE_URL": {
             "required": true
