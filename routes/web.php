@@ -10,20 +10,32 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/clear-cache', 'RedirectController@clearCacheAndRedirect');
-Route::get('/postcodeFinder', 'RedirectController@postcodeFinder');
-Route::get('/postcodeReverseLookup', 'RedirectController@postcodeReverseLookup');
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    return redirect('/');
+});
 
-Route::get('/', 'HomeController@home')->name('home');
+Route::get('/', function () {
+    return view('welcome');
+})->name('home');
 
-Route::get('/about', 'AboutController@about')->name('about');
+Route::get('/postcodeFinder', function() {
+    return redirect('/lookup');
+});
+Route::get('/postcodeReverseLookup', function() {
+    return redirect('/search/postcode');
+});
 
-Route::get('/contact', 'ContactController@contact')->name('contact');
+Route::get('/about', function () {
+    return view('about.about');
+})->name('about');
 
+Route::get('/contact', function () {
+    return view('contact.contact');
+})->name('contact');
 Route::post('/api/contact/send', 'MessageController@sendContactMessage');
 
 Route::get('/lookup', 'LookupController@showPostcodeLookupPage')->name('lookup');
-
 Route::get('/api/lookup/states', 'LookupController@fetchStates');
 Route::get('/api/lookup/lgas', 'LookupController@fetchLocalGovernmentAreas');
 
@@ -40,7 +52,9 @@ Route::get('/api/search/byPostcode', 'SearchController@searchByPostcode');
 Route::get('/map', 'MapController@w3wMap')->name('map');
 Route::get('/api/map/w3wAddress', 'MapController@getWhat3WordsAddress');
 
-Route::get('/directory', 'DirectoryController@directory')->name('directory');
+Route::get('/directory', function() {
+    return redirect('/directory/states');
+})->name('directory');
 Route::get('/directory/states', 'DirectoryController@fetchStates')->name('statesDirectory');
 Route::get('/directory/states/{stateSlug}/lgas', 'DirectoryController@fetchLocalGovernmentAreas')->name('lgasDirectory');
 Route::get('/directory/states/{stateSlug}/lgas/{lgaSlug}/ruralAreas', 'DirectoryController@fetchRuralAreas')->name('ruralAreasDirectory');
