@@ -1,13 +1,14 @@
 {
-    "name": "postcodes-ng-web",
-    "description": "The Postcodes.NG Website.",
+    "name": "laravel/laravel",
+    "description": "The Laravel Framework.",
+    "keywords": ["framework", "laravel"],
     "license": "MIT",
     "type": "project",
     "require": {
         "php": ">=5.6.4",
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "5.7.*",
-        "laravel/tinker": "^2.4.0",
+        "laravel/tinker": "~1.0",
         "lcobucci/jwt": "^3.2"
     },
     "require-dev": {
