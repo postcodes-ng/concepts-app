@@ -19,7 +19,6 @@ Ensure you have the following installed
 * git clone this repository
 * cd into the concepts-app folder
 * Create an env file using the env.example template ==> ```cat .env.example > .env``` and update it with the necessary details or contact team lead for content on the file.
-* Create `Homestead.yaml` file. Contact team lead for content on the file.
 
 ### Setup Locally
 The project can be setup using a local development server or Laravel Homestead Virtual Machine
@@ -35,9 +34,12 @@ The project can be setup using a local development server or Laravel Homestead V
 * ```storage``` and ```bootstrap/cache``` directories should be writable by the web server for Laravel to run. To configure these permissions, run the following commands in the project's directory ```chmod 777 storage``` ```chmod 777 bootstrap/cache```
 
 #### Laravel Homestead Virtual Machine
-* Copy this and add this to your hosts file ```192.168.10.13   concepts-app ```
-* Replace Line 10, in the homestead.yaml file, with your path to the project.
+* Install Homestead - ```composer require laravel/homestead --dev```
+* Use `make` command to generate the `Homestead.yaml file` - Run ```php vendor/bin/homestead make``` for Mac  or ```vendor\\bin\\homestead make``` for windows
+* Open the `Homestead.yaml` file 
+    * On line 14 rename `homestead.test` to `postcodes-ng`
+    * Copy the ip-addrress on line 1. Then open your `hosts` file and on a new line paste in the ip-address mapping it to `postcodes-ng`. For example ```192.168.10.13   postcodes-ng```
 * Run ```vagrant up```. This creates the VM for the project if run the first time
 * Run ```npm install```
 * Run ```npm run watch-poll```
-* Once it's up, browse to ```http://concepts-app/```
+* Once it's up, browse to ```http://homestead.test/```
