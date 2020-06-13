@@ -1,5 +1,5 @@
 {
-    "name": "postcodes-ng-web",
+    "name": "postcodes-ng/web",
     "description": "The Postcodes.NG Website.",
     "keywords": ["framework", "laravel"],
     "license": "MIT",
