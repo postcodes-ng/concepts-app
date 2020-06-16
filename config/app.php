@@ -217,10 +217,10 @@ return [
     | Cache TTL
     |--------------------------------------------------------------------------
     |
-    | The number of minutes for which the value should be cached.
+    | The number of seconds for which the value should be cached.
     |
     */
 
-     'cache_ttl' => env('CACHE_TTL', 1440),
+     'cache_ttl' => env('CACHE_TTL', 86400),
 
 ];
