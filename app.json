@@ -1,6 +1,6 @@
 {
-  "name": "concepts app",
-  "description": "Nigerian Postcodes Finder Concept",
+  "name": "postcodes-ng",
+  "description": "The Postcodes.NG Website.",
   "scripts": {
     "postdeploycomposer": "composer install",
     "postdeploynpm": "npm install"
@@ -71,7 +71,7 @@
         },
         "CONTACT_FORM_MAIL_TO_ADDRESS": {
           "required": false
-        },
+        }
 	},
 	"formation": {
 		
