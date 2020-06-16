@@ -45,7 +45,7 @@
         "JWT_AUDIENCE": {
             "required": false
         },
-        "MAIL_DRIVER": {
+        "MAIL_MAILER": {
           "required": false
         },
         "MAIL_HOST": {

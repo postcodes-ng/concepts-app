@@ -56,8 +56,8 @@ class CommonFunctions {
     }
 
     public function storeInCache($cacheKey, $item) {
-        $expirationInMinutes = Config::get('app.cache_ttl');
-        Cache::put($cacheKey, $item, $expirationInMinutes);
+        $expirationInSeconds = Config::get('app.cache_ttl');
+        Cache::put($cacheKey, $item, $expirationInSeconds);
     }
 
     /**

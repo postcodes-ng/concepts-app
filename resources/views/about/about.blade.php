@@ -36,28 +36,28 @@
                 </p>
 
                 <p>
-                In Nigeria postcodes were introduced by NIPOST (Nigerian Postal Service) in the year 2000, but despite NIPOST’s efforts in creating awareness and even creating a <a href="http://www.nigeriapostcode.com.ng/" target="_blank" >postcode finder site</a>, just like this one, that would help citizens in searching for and finding their postcode the Nigerian postcode system has not gained ground.
+                In Nigeria the postcodes system was introduced by NIPOST (Nigerian Postal Service) in the year 2000, and since then has not fully  gained ground.
                 </p>
 
                 <p>
-                This failure of adoption is largely attributed to a couple of reasons;
+                This slowness of adoption is largely attributed to a couple of reasons;
                     <ul>
-                        <li><strong>Inaccurate and incomplete data:</strong> Some of the postcodes data on the NIPOST's postcode finder site are inaccurate, some are duplicated while some are conflicting. NIPOST maintains a physical postcode  directory, which is far more up  to date and complete than what is available on the NIPOST site, but many people are not aware of the existence of the directory and it is not readily available.</li>
+                        <li><strong>Lack of Awareness:</strong> NIPOST maintains a physical postcode  directory, but many people are not aware of the existence of the directory.</li>
                         <li><strong>Undefined mapping of the postcodes:</strong> The Nigerian postcodes which represent a basic spatial unit (BSU) have not been geographically mapped, if they have the data has not been made public. Mapping of the post codes will go a long way in increasing the adoption of the postcode system. With a geographically mapped postcode system the postcode of a location can be easily determined by just providing the latitude and longitude of any point within that location.</li>
-                        <li><strong>Inaccessible data:</strong> It is wonderful that NIPOST has a site that lets you search for postcodes but that is not enough, without access to the raw data there is no room to evolve. </li>
+                        <li><strong>Inaccessible data:</strong> It is wonderful that NIPOST has a site that lets you search for postcodes but that is not enough, without access to the raw digital data there is no room to evolve. </li>
                     </ul>
                 </p>
 
                 <p>
-                The above reasons are why <strong>postcodes.ng</strong> have come to be, and those are the problems that we intend to solve.
+                The above reasons are why <strong>postcodes.ng</strong> have come to be, and those are the problems that we intend to help solve.
                 </p>
 
                 <p>
-                First and foremost we have replicated the NIPOST site because we want to ensure that Nigerians have a reliable online source, not one that goes offline several months at a time (for example the NIPOST postcode finder site just came back online on June of 2017 after being offline for about 9 months).
+                First and foremost we have created a postcode look up site because we want to ensure that Nigerians have an additional online source.
                 </p>
 
                 <p>
-                Secondly we are working diligently on updating the data we have using the NIPOST postcode directory, and ensuring that we eliminate conflicts and duplicates as best as we can.
+                Secondly we are working diligently on updating the data we have using the NIPOST postcode directory.
                 </p>
 
                 <p>
@@ -65,7 +65,7 @@
                 </p>
 
                 <p>
-                And lastly we intend to physically map each and every postcode and make the geo data accessible through our API.
+                And lastly we intend to help physically map each and every postcode and make the geo data accessible through our API.
                 </p>
 
                 <p>
