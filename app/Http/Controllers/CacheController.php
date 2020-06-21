@@ -17,7 +17,7 @@ class CacheController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('web');
+       
     }
 
     /**
