@@ -11,7 +11,7 @@
 /.vagrant
 /.vscode
 Homestead.json
-Homestead.yaml
+/Homestead.yaml
 npm-debug.log
 yarn.lock
 .env
