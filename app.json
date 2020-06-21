@@ -71,6 +71,21 @@
         },
         "CONTACT_FORM_MAIL_TO_ADDRESS": {
           "required": false
+        },
+        "MEMCACHED_USERNAME": {
+          "required": true
+        },
+        "MEMCACHED_PASSWORD": {
+          "required": true
+        },
+        "MEMCACHED_HOST": {
+          "required": true
+        },
+        "MEMCACHED_PORT": {
+          "required": true
+        },
+        "MEMCACHED_PERSISTENT_ID": {
+          "required": true
         }
 	},
 	"formation": {

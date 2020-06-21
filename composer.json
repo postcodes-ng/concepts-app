@@ -6,6 +6,7 @@
     "type": "project",
     "require": {
         "php": ">=7.2.5",
+        "ext-memcached": "*",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.15.0",
