@@ -22,7 +22,7 @@
                     <div  class="row">
                         <div class="col-md-8 col-md-offset-2">
                             <div class="header-content">
-                                <p>Your one stop destination for all things postcodes in Nigeria</p>
+                                <p>Lookup, Search, and Find Nigerian Postcodes</p>
                             </div>
                         </div>
                     </div>
