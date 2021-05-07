@@ -22,7 +22,7 @@
     "inline-environment-variables-webpack-plugin": "^1.2.1",
     "jquery": "^3.4.1",
     "laravel-mix": "^5.0.4",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "node-sass": "^4.14.0",
     "resolve-url-loader": "2.3.2",
     "sass": "^1.16.1",
